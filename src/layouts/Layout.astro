@@ -1,17 +1,21 @@
 ---
 import NavBar from "@components/NavBar.astro";
 import TheHead from "@components/TheHead.astro";
+import "@/styles/index.scss";
 
 interface Props {
   pageName: string;
 }
 
 const { pageName } = Astro.props;
+const title = `Renato Lacerda | ${pageName}`;
 ---
 
 <!DOCTYPE html>
 <html lang="pt">
-  <TheHead pageName={pageName} />
+  <head>
+    <TheHead />
+  </head>
   <body>
     <NavBar />
     <slot />
