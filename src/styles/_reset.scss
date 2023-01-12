@@ -45,6 +45,7 @@ select {
 ul[role="list"],
 ol[role="list"] {
   list-style: none;
+  padding-left: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

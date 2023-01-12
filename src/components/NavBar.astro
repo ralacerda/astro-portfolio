@@ -1,0 +1,125 @@
+---
+import ThemeIcon from "./ThemeIcon.astro";
+import OpenNav from "~icons/dashicons/menu-alt";
+
+const links = new Map([
+  ["Inicio", "/"],
+  ["Projetos", "/projetos"],
+  ["Cursos", "/certificados"],
+  ["Sobre mim", "/sobre-mim"],
+  ["Contato", "/contato"],
+]);
+---
+
+<nav class="navbar">
+  <div class="content navbar__container">
+    <header class="navbar__title">
+      <div><a href="/">Renato Lacerda</a></div>
+      <button
+        class="navbar__button"
+        aria-label="Toggle navigation menu"
+        id="navbar-button"
+      >
+        <OpenNav />
+      </button>
+    </header>
+    <ul role="list" class="navbar__navigation">
+      {
+        Array.from(links, ([key, value]) => (
+          <li>
+            <a href={value} class="navbar__link">
+              {key}
+            </a>
+          </li>
+        ))
+      }
+      <ThemeIcon />
+    </ul>
+  </div>
+</nav>
+
+<style lang="scss">
+  .navbar {
+    color: var(--neutral-100);
+    background-color: var(--neutral-1000);
+    box-shadow: 0px 0px 4px 2px var(--shadow);
+    overflow: hidden;
+
+    & a {
+      color: var(--neutral-100);
+      text-decoration: none;
+    }
+  }
+
+  .navbar__container {
+    padding: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .navbar__title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navbar__navigation {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .navbar__link {
+    font-size: 1.2rem;
+    background: linear-gradient(var(--danger) 0 0) calc(100% - var(--p, 0%)) 90% /
+      var(--p, 0%) 2px no-repeat;
+    transition: 150ms, background-position 0s;
+
+    &:hover,
+    &:focus-visible {
+      --p: 100%;
+    }
+  }
+
+  .navbar__button {
+    display: none;
+    background: none;
+    color: var(--neutral-100);
+    cursor: pointer;
+    border: none;
+  }
+
+  @media (max-width: 960px) {
+    .navbar__button {
+      display: unset;
+    }
+
+    .navbar__navigation {
+      display: none;
+    }
+
+    .navbar__container {
+      flex-direction: column;
+    }
+
+    .navbar__navigation[data-active] {
+      display: block;
+
+      li {
+        margin-block: 1rem;
+      }
+    }
+  }
+</style>
+
+<script>
+  const toggleButton = document.getElementById("navbar-button");
+  const navigationLinks = document.querySelector(".navbar__navigation");
+
+  toggleButton?.addEventListener("click", () => {
+    navigationLinks?.toggleAttribute("data-active");
+  });
+</script>

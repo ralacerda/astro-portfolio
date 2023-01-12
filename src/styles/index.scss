@@ -2,6 +2,15 @@
 @use "reset";
 
 body {
+  --bg-transition: 0ms;
   color: var(--fg);
   background-color: var(--bg);
+  transition: background-color var(--bg-transition);
+  font-family: "Nunito Sans", sans-serif;
+}
+
+.content {
+  width: 90vw;
+  width: clamp(16rem, 90vw, 90rem);
+  margin-inline: auto;
 }

@@ -1,4 +1,5 @@
 ---
+import NavBar from "@components/NavBar.astro";
 import TheHead from "@components/TheHead.astro";
 
 interface Props {
@@ -12,6 +13,7 @@ const { pageName } = Astro.props;
 <html lang="pt">
   <TheHead pageName={pageName} />
   <body>
+    <NavBar />
     <slot />
   </body>
 </html>
