@@ -1,0 +1,29 @@
+body {
+  --neutral-100: #e8e8e8;
+  --neutral-200: #cfd0d1;
+  --neutral-300: #b7b8ba;
+  --neutral-400: #9ea0a3;
+  --neutral-500: #85888d;
+  --neutral-600: #6c7076;
+  --neutral-700: #54585f;
+  --neutral-800: #3b4048;
+  --neutral-900: #222831;
+  --danger: #ef5e5e;
+  --shadow: #00000020;
+
+  --fg: var(--neutral-900);
+  --fg-secondary: var(--neutral-800);
+  --fg-details: var(--neutral-700);
+  --bg: var(--neutral-100);
+  --bg-secondary: var(--neutral-200);
+  --bg-details: var(--neutral-300);
+}
+
+.dark body {
+  --fg: var(--neutral-100);
+  --fg-secondary: var(--neutral-200);
+  --fg-details: var(--neutral-300);
+  --bg: var(--neutral-900);
+  --bg-secondary: var(--neutral-800);
+  --bg-details: var(--neutral-700);
+}

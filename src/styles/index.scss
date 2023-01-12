@@ -1,0 +1,7 @@
+@use "variables";
+@use "reset";
+
+body {
+  color: var(--fg);
+  background-color: var(--bg);
+}
