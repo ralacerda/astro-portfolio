@@ -1,0 +1,92 @@
+---
+import IconAstro from "~icons/simple-icons/astro";
+import IconBash from "~icons/simple-icons/gnubash";
+import IconGit from "~icons/simple-icons/git";
+import IconHtml from "~icons/simple-icons/html5";
+import IconCss from "~icons/simple-icons/css3";
+import IconSass from "~icons/simple-icons/sass";
+import IconJavascript from "~icons/simple-icons/javascript";
+import IconTypescript from "~icons/simple-icons/typescript";
+import IconNuxt from "~icons/simple-icons/nuxtdotjs";
+import IconVue from "~icons/simple-icons/vuejs";
+---
+
+<ul class="icon-list content" role="list">
+  <li data-tooltip="Bash"><IconBash /></li>
+  <li data-tooltip="Git"><IconGit /></li>
+  <li data-tooltip="HTML5"><IconHtml /></li>
+  <li data-tooltip="CSS3"><IconCss /></li>
+  <li data-tooltip="SASS"><IconSass /></li>
+  <li data-tooltip="Javascript"><IconJavascript /></li>
+  <li data-tooltip="Typescript"><IconTypescript /></li>
+  <li data-tooltip="Vue"><IconVue /></li>
+  <li data-tooltip="Nuxt"><IconNuxt /></li>
+  <li data-tooltip="Astro"><IconAstro /></li>
+</ul>
+
+<style lang="scss">
+  .icon-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    font-size: 3.5rem;
+    color: var(--fg-details);
+  }
+
+  li {
+    --duration: 300ms;
+    --delay: 100ms;
+
+    position: relative;
+    opacity: 0;
+    transition: opacity var(--duration) linear calc(var(--delay) * var(--i)),
+      transform var(--duration) ease-out calc(var(--delay) * var(--i));
+    transform: translateY(4rem);
+
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        --i: #{$i};
+      }
+    }
+
+    &::after {
+      content: attr(data-tooltip);
+      display: block;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      font-size: 1.3rem;
+      padding: 0.15rem 0.4rem;
+      background-color: var(--fg);
+      color: var(--bg);
+      transform: translate(-50%, 0rem);
+      border-radius: 6px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s, transform 0.4s;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: var(--danger);
+
+      &::after {
+        opacity: 1;
+        transform: translate(-50%, -0.3rem);
+      }
+    }
+  }
+
+  .fadeIn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  addEventListener("load", () => {
+    const iconList = document.querySelectorAll(".icon-list li");
+    iconList.forEach((icon) => icon.classList.add("fadeIn"));
+  });
+</script>

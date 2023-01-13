@@ -14,3 +14,7 @@ body {
   width: clamp(16rem, 90vw, 90rem);
   margin-inline: auto;
 }
+
+main > * {
+  margin-top: 4rem;
+}

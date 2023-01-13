@@ -1,0 +1,76 @@
+---
+import heroImage from "@/assets/images/hero-image.png";
+import { Image } from "@astrojs/image/components";
+---
+
+<div class="hero">
+  <div class="hero__grid">
+    <Image
+      alt="Foto de Renato"
+      src={heroImage}
+      aspectRatio="1:1"
+      height={400}
+      format="webp"
+      quality={90}
+      class="hero__image"
+    />
+    <div class="hero__text">
+      <h1>Olá, eu sou o Renato</h1>
+      <p>Estou em busca de uma vaga como Desenvolvedor Front End</p>
+      <a class="hero__cta" href="/projetos"> Veja meus projetos</a>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .hero__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+    justify-content: center;
+    justify-items: center;
+    gap: 2rem;
+    padding-inline: 1rem;
+  }
+
+  .hero__image {
+    height: 100%;
+    box-shadow: 2px -4px 0 4px var(--danger);
+    background-color: var(--danger);
+    border-radius: 100%;
+  }
+
+  .hero__text {
+    text-align: center;
+    display: grid;
+    align-content: center;
+    line-height: 1.2;
+    gap: 1.5rem;
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 2rem;
+    }
+  }
+
+  .hero__cta {
+    text-decoration: none;
+    transition: 200ms;
+    border: solid 1px var(--danger);
+    width: fit-content;
+    padding: 0.2rem 1rem;
+    border-radius: 0.5rem;
+    color: var(--fg);
+    line-height: 1.4;
+    font-size: 1.4rem;
+    margin-inline: auto;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--neutral-900);
+      background-color: var(--danger);
+    }
+  }
+</style>
