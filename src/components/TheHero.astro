@@ -25,10 +25,10 @@ import { Image } from "@astrojs/image/components";
 <style lang="scss">
   .hero__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 600px));
     justify-content: center;
     justify-items: center;
-    gap: var(--space-l);
+    row-gap: var(--space-l);
     padding-inline: 1rem;
   }
 
@@ -44,27 +44,27 @@ import { Image } from "@astrojs/image/components";
     display: grid;
     align-content: center;
     line-height: 1.2;
-    gap: var(--space-xs);
+    gap: var(--space-s);
 
     h1 {
-      font-size: var(--step-3);
+      font-size: var(--step-4);
     }
 
     p {
-      font-size: var(--step-2);
+      font-size: var(--step-3);
     }
   }
 
   .hero__cta {
     text-decoration: none;
-    transition: 200ms;
+    transition: background-color 200ms;
     border: solid 1px var(--danger);
     width: fit-content;
     padding: 0.2rem 1rem;
     border-radius: 0.5rem;
     color: var(--fg);
     line-height: 1.4;
-    font-size: 1.4rem;
+    font-size: var(--step-2);
     margin-inline: auto;
 
     &:hover,
