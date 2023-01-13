@@ -28,7 +28,7 @@ import { Image } from "@astrojs/image/components";
     grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
     justify-content: center;
     justify-items: center;
-    gap: 2rem;
+    gap: var(--space-l);
     padding-inline: 1rem;
   }
 
@@ -44,14 +44,14 @@ import { Image } from "@astrojs/image/components";
     display: grid;
     align-content: center;
     line-height: 1.2;
-    gap: 1.5rem;
+    gap: var(--space-xs);
 
     h1 {
-      font-size: 3rem;
+      font-size: var(--step-3);
     }
 
     p {
-      font-size: 2rem;
+      font-size: var(--step-2);
     }
   }
 
