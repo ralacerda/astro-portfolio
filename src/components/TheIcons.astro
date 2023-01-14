@@ -1,27 +1,31 @@
 ---
-import IconAstro from "~icons/simple-icons/astro";
-import IconBash from "~icons/simple-icons/gnubash";
-import IconGit from "~icons/simple-icons/git";
-import IconHtml from "~icons/simple-icons/html5";
-import IconCss from "~icons/simple-icons/css3";
-import IconSass from "~icons/simple-icons/sass";
-import IconJavascript from "~icons/simple-icons/javascript";
-import IconTypescript from "~icons/simple-icons/typescript";
-import IconNuxt from "~icons/simple-icons/nuxtdotjs";
-import IconVue from "~icons/simple-icons/vuejs";
+import { getIcon } from "@/composables/getIcon";
+import type { Tech } from "@/composables/getIcon";
+
+const icons: Tech[] = [
+  "Bash",
+  "Git",
+  "HTML5",
+  "CSS3",
+  "SASS",
+  "Javascript",
+  "Typescript",
+  "Vue",
+  "Nuxt",
+  "Astro",
+];
 ---
 
 <ul class="icon-list content" role="list">
-  <li data-tooltip="Bash"><IconBash /></li>
-  <li data-tooltip="Git"><IconGit /></li>
-  <li data-tooltip="HTML5"><IconHtml /></li>
-  <li data-tooltip="CSS3"><IconCss /></li>
-  <li data-tooltip="SASS"><IconSass /></li>
-  <li data-tooltip="Javascript"><IconJavascript /></li>
-  <li data-tooltip="Typescript"><IconTypescript /></li>
-  <li data-tooltip="Vue"><IconVue /></li>
-  <li data-tooltip="Nuxt"><IconNuxt /></li>
-  <li data-tooltip="Astro"><IconAstro /></li>
+  {
+    icons.map((icon) => {
+      return (
+        <li data-tooltip={icon}>
+          <Fragment set:html={getIcon(icon)} />
+        </li>
+      );
+    })
+  }
 </ul>
 
 <style lang="scss">
@@ -29,7 +33,7 @@ import IconVue from "~icons/simple-icons/vuejs";
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: var(--space-xl);
+    gap: var(--space-xl-2xl);
     font-size: var(--step-4);
     color: var(--gray);
   }
