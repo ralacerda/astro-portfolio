@@ -5,14 +5,13 @@ import type { Tech } from "@/composables/getIcon";
 
 interface Props {
   title: string;
-  linkLive?: string;
-  linkGh?: string;
+  link?: string;
   linkReadMore?: string;
   imgSrc: ImageMetadata;
   techList: Tech[];
 }
 
-const { title, linkLive, linkGh, linkReadMore, imgSrc, techList } = Astro.props;
+const { title, link, linkReadMore, imgSrc, techList } = Astro.props;
 ---
 
 <div class="project">
@@ -22,6 +21,9 @@ const { title, linkLive, linkGh, linkReadMore, imgSrc, techList } = Astro.props;
   <div class="project__flex">
     <div class="project__text">
       <slot />
+      <p>
+        <a href={linkReadMore}> Leia mais sobre o projeto</a>
+      </p>
       <div class="project__icons">
         {
           getIconFromArray(techList).map((icon) => {
@@ -30,20 +32,28 @@ const { title, linkLive, linkGh, linkReadMore, imgSrc, techList } = Astro.props;
         }
       </div>
     </div>
-    <Image
-      alt={`Screenshot do projeto ${title}`}
-      src={imgSrc}
-      width={600}
-      ratio="16:9"
-      format="webp"
-      class="project__screenshot"
-    />
+    <div class="project__screenshot-background">
+      <a href={link} target="_blank">
+        <Image
+          alt={`Screenshot do projeto ${title}`}
+          src={imgSrc}
+          width={600}
+          ratio="16:9"
+          format="webp"
+          class="project__screenshot"
+        />
+      </a>
+    </div>
   </div>
 </div>
 
 <style lang="scss">
   .project {
-    margin-top: var(--space-l);
+    margin-top: var(--space-m);
+  }
+
+  .project + .project {
+    margin-top: var(--space-2xl);
   }
 
   .project__flex {
@@ -74,5 +84,17 @@ const { title, linkLive, linkGh, linkReadMore, imgSrc, techList } = Astro.props;
 
   .project__screenshot {
     height: auto;
+    transition: box-shadow 200ms, transform 200ms;
+    border-radius: 3px;
+    @include shadow;
+
+    &:hover {
+      transform: translate(-0.5rem, -0.5rem);
+    }
+  }
+
+  .project__screenshot-background {
+    border-radius: 4px;
+    background-color: var(--danger);
   }
 </style>
