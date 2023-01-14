@@ -54,5 +54,14 @@ body {
   --space-2xl: clamp(3rem, calc(2.71rem + 1.43vw), 4rem);
   --space-3xl: clamp(4.5rem, calc(4.07rem + 2.14vw), 6rem);
 
+  --space-3xs-2xs: clamp(0.19rem, calc(0.1rem + 0.45vw), 0.5rem);
+  --space-2xs-xs: clamp(0.38rem, calc(0.27rem + 0.54vw), 0.75rem);
+  --space-xs-s: clamp(0.56rem, calc(0.44rem + 0.63vw), 1rem);
+  --space-s-m: clamp(0.75rem, calc(0.54rem + 1.07vw), 1.5rem);
+  --space-m-l: clamp(1.13rem, calc(0.88rem + 1.25vw), 2rem);
+  --space-l-xl: clamp(1.5rem, calc(1.07rem + 2.14vw), 3rem);
+  --space-xl-2xl: clamp(2.25rem, calc(1.75rem + 2.5vw), 4rem);
+  --space-2xl-3xl: clamp(3rem, calc(2.14rem + 4.29vw), 6rem);
+
   --space-xl-3xl: clamp(2.25rem, calc(1.18rem + 5.36vw), 6rem);
 }
