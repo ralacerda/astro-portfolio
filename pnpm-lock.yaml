@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/image': ^0.12.1
+  '@fontsource/nunito-sans': ^4.5.10
   '@iconify/json': ^2.2.5
   astro: ^1.9.0
   prettier: ^2.8.2
@@ -12,6 +13,7 @@ specifiers:
 
 dependencies:
   '@astrojs/image': 0.12.1_sharp@0.31.3
+  '@fontsource/nunito-sans': 4.5.10
   '@iconify/json': 2.2.5
   astro: 1.9.2_sass@1.57.1
   sass: 1.57.1
@@ -425,6 +427,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource/nunito-sans/4.5.10:
+    resolution: {integrity: sha512-GVKc3mEfnk3fLEuiQXNYhlP/Z9SrCgD831xZJ7J+6OgFzEf6LNnyHPiqWfjW671sAmOBQTLgm/21z78K/beWEw==}
+    dev: false
 
   /@iconify/json/2.2.5:
     resolution: {integrity: sha512-AIbJTRF9HJz7FJ8t7058huwDXHaFEY4a4f6uuPtctEQ8/I3ybrX66iZMgoLD1kLaamU4tzZPlZ6tSpA3pM8LZg==}
