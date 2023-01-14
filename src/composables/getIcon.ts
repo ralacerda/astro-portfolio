@@ -10,6 +10,11 @@ const icons = {
   Nuxt: (await import("~icons/simple-icons/nuxtdotjs?raw")).default,
   Astro: (await import("~icons/simple-icons/astro?raw")).default,
   Firebase: (await import("~icons/simple-icons/firebase?raw")).default,
+  Node: (await import("~icons/simple-icons/nodejs?raw")).default,
+  Mongo: (await import("~icons/simple-icons/mongodb?raw")).default,
+  Bulma: (await import("~icons/simple-icons/bulma?raw")).default,
+  Netlify: (await import("~icons/simple-icons/netlify?raw")).default,
+  Vite: (await import("~icons/simple-icons/vite?raw")).default,
 };
 
 export type Tech = keyof typeof icons;
