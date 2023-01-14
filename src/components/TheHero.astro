@@ -57,21 +57,9 @@ import { Image } from "@astrojs/image/components";
   }
 
   .hero__cta {
-    text-decoration: none;
-    transition: background-color 200ms;
-    border: solid 1px var(--danger);
     width: fit-content;
-    padding: 0.2rem 1rem;
-    border-radius: 0.5rem;
-    color: var(--fg);
-    line-height: 1.4;
-    font-size: var(--step-2);
     margin-inline: auto;
-
-    &:hover,
-    &:focus-visible {
-      color: var(--neutral-900);
-      background-color: var(--danger);
-    }
+    font-size: var(--step-2);
+    @include border-button;
   }
 </style>
