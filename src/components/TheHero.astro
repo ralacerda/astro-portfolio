@@ -15,8 +15,8 @@ import { Image } from "@astrojs/image/components";
       class="hero__image"
     />
     <div class="hero__text">
-      <h1>Olá, eu sou o Renato</h1>
-      <p>Desenvolvedor Front End</p>
+      <h1 class="hero__name">Olá, eu sou o Renato</h1>
+      <div class="hero__position">Desenvolvedor Front End</div>
       <a class="hero__cta" href="/projetos"> Veja meus projetos</a>
     </div>
   </div>
@@ -44,15 +44,16 @@ import { Image } from "@astrojs/image/components";
     display: grid;
     align-content: center;
     line-height: 1.2;
-    gap: var(--space-s);
+  }
 
-    h1 {
-      font-size: var(--step-4);
-    }
+  .hero__name {
+    font-size: var(--step-4);
+  }
 
-    p {
-      font-size: var(--step-3);
-    }
+  .hero__position {
+    font-size: var(--step-3);
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-m);
   }
 
   .hero__cta {
