@@ -12,7 +12,7 @@ const links = new Map([
 ---
 
 <nav class="navbar">
-  <div class="content navbar__container">
+  <div class="navbar__container">
     <header class="navbar__title">
       <div><a href="/">Renato Lacerda</a></div>
       <button
@@ -53,6 +53,7 @@ const links = new Map([
     padding: 0.6rem;
     display: flex;
     justify-content: space-between;
+    @include centered-content;
   }
 
   .navbar__title {

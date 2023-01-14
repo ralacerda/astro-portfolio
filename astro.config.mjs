@@ -12,6 +12,13 @@ export default defineConfig({
         compiler: "astro",
       }),
     ],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: "@import 'src/styles/globals.scss';",
+        },
+      },
+    },
   },
   integrations: [
     image({

@@ -1,0 +1,5 @@
+@mixin centered-content {
+  width: 90vw;
+  width: clamp(16rem, 90vw, 90rem);
+  margin-inline: auto;
+}
