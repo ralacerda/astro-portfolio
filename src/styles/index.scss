@@ -15,3 +15,13 @@ main > * {
 p + p {
   margin-top: var(--space-s);
 }
+
+a {
+  color: var(--fg-secondary);
+  text-decoration-color: var(--fg-secondary);
+
+  &:hover {
+    color: var(--fg);
+    text-decoration-color: var(--danger);
+  }
+}
