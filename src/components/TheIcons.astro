@@ -39,14 +39,14 @@ const icons: Tech[] = [
   }
 
   li {
-    --duration: 300ms;
+    --duration: 350ms;
     --delay: 100ms;
 
     position: relative;
     opacity: 0;
     transition: opacity var(--duration) linear calc(var(--delay) * var(--i)),
       transform var(--duration) ease-out calc(var(--delay) * var(--i));
-    transform: translateY(4rem);
+    transform: translateY(12rem);
 
     @for $i from 1 through 12 {
       &:nth-child(#{$i}) {

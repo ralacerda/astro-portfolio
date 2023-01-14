@@ -9,7 +9,7 @@ body {
 
 main > * {
   @include centered-content;
-  margin-top: var(--space-xl-3xl);
+  margin-top: var(--space-xl-2xl);
 }
 
 p + p {

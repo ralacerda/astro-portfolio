@@ -72,10 +72,14 @@ import contrastImage from "@/assets/images/project-contrast.png";
       caixa que utiliza as cores escolhidas.
     </p>
   </ProjectCardSimple>
+
+  <a href="/projects/" class="project__button"> Veja todos meus projetos</a>
 </div>
 
-<style>
+<style lang="scss">
   .projects {
+    position: relative;
+    z-index: 10;
     background-color: var(--bg-secondary);
     box-shadow: 4.5px 1.7px 3.6px rgba(0, 0, 0, 0.017),
       12.5px 4.8px 10px rgba(0, 0, 0, 0.025),
@@ -87,5 +91,13 @@ import contrastImage from "@/assets/images/project-contrast.png";
 
   h2 {
     font-size: var(--step-3);
+  }
+
+  .project__button {
+    display: block;
+    width: fit-content;
+    font-size: var(--step-1);
+    margin-top: var(--space-xl);
+    @include border-button;
   }
 </style>
