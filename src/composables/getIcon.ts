@@ -1,25 +1,15 @@
-import IconAstro from "~icons/simple-icons/astro?raw";
-import IconBash from "~icons/simple-icons/gnubash?raw";
-import IconGit from "~icons/simple-icons/git?raw";
-import IconHtml from "~icons/simple-icons/html5?raw";
-import IconCss from "~icons/simple-icons/css3?raw";
-import IconSass from "~icons/simple-icons/sass?raw";
-import IconJavascript from "~icons/simple-icons/javascript?raw";
-import IconTypescript from "~icons/simple-icons/typescript?raw";
-import IconNuxt from "~icons/simple-icons/nuxtdotjs?raw";
-import IconVue from "~icons/simple-icons/vuejs?raw";
-
 const icons = {
-  Bash: IconBash,
-  Git: IconGit,
-  HTML5: IconHtml,
-  CSS3: IconCss,
-  SASS: IconSass,
-  Javascript: IconJavascript,
-  Typescript: IconTypescript,
-  Vue: IconVue,
-  Nuxt: IconNuxt,
-  Astro: IconAstro,
+  Bash: (await import("~icons/simple-icons/gnubash?raw")).default,
+  Git: (await import("~icons/simple-icons/git?raw")).default,
+  HTML5: (await import("~icons/simple-icons/html5?raw")).default,
+  CSS3: (await import("~icons/simple-icons/css3?raw")).default,
+  SASS: (await import("~icons/simple-icons/sass?raw")).default,
+  Javascript: (await import("~icons/simple-icons/javascript?raw")).default,
+  Typescript: (await import("~icons/simple-icons/typescript?raw")).default,
+  Vue: (await import("~icons/simple-icons/vuejs?raw")).default,
+  Nuxt: (await import("~icons/simple-icons/nuxtdotjs?raw")).default,
+  Astro: (await import("~icons/simple-icons/astro?raw")).default,
+  Firebase: (await import("~icons/simple-icons/firebase?raw")).default,
 };
 
 export type Tech = keyof typeof icons;
