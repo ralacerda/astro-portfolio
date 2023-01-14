@@ -10,7 +10,6 @@ body {
   --neutral-900: #1f2229;
 
   --danger: #ef5e5e;
-  --shadow: #00000020;
 
   --fg: var(--neutral-800);
   --fg-secondary: var(--neutral-800);
@@ -24,7 +23,7 @@ body {
 .dark body {
   --fg: var(--neutral-100);
   --fg-secondary: var(--neutral-200);
-  --fg-details: var(--neutral-300);
+  --fg-details: var(--neutral-00);
   --bg: var(--neutral-800);
   --bg-secondary: var(--neutral-700);
   --bg-details: var(--neutral-600);
