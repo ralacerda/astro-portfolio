@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Picture } from "@astrojs/image/components";
 import { getIconFromArray } from "@/composables/getIcon";
 import type { Tech } from "@/composables/getIcon";
 
@@ -34,10 +34,11 @@ const { title, link, linkReadMore, imgSrc, techList } = Astro.props;
     </div>
     <div class="project__screenshot-background">
       <a href={link} target="_blank">
-        <Image
+        <Picture
           alt={`Screenshot do projeto ${title}`}
           src={imgSrc}
-          width={600}
+          widths={[400, 600]}
+          sizes="(max-width: 600px) 400px, 600px"
           ratio="16:9"
           format="webp"
           class="project__screenshot"
