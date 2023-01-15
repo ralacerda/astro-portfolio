@@ -1,17 +1,15 @@
 ---
 import heroImage from "@/assets/images/hero-image.png";
-import { Picture } from "@astrojs/image/components";
+import { Image } from "@astrojs/image/components";
 ---
 
 <div class="hero">
   <div class="hero__grid">
-    <Picture
+    <Image
       alt="Foto de Renato"
       src={heroImage}
       aspectRatio="1:1"
       height={400}
-      widths={[300, 400]}
-      sizes="(max-width: 600px) 300px, 400px"
       format="webp"
       quality={100}
       class="hero__image"
