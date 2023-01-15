@@ -3,7 +3,9 @@ body {
   color: var(--fg);
   background-color: var(--bg);
   transition: background-color var(--bg-transition);
-  font-family: "Nunito Sans", sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
   font-size: var(--step-0);
 }
 
