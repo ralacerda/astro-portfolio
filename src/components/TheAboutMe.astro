@@ -1,0 +1,174 @@
+---
+import aboutImage from "@/assets/images/about-image.jpeg";
+import { Image } from "@astrojs/image/components";
+
+const logoUnicamp = await import("@/assets/logos/unicamp.svg?raw");
+const logoUsp = await import("@/assets/logos/usp.svg?raw");
+const logoSouthampton = await import("@/assets/logos/southampton.svg?raw");
+const logoDesenvolva = await import("@/assets/logos/desenvolva.svg?raw");
+---
+
+<div class="about__grid">
+  <div class="about__card">
+    <h2>Sobre mim</h2>
+    <div class="about__text">
+      <p>
+        Pensando mais a longo prazo, a crescente influência da mídia é uma das
+        consequências dos modos de operação convencionais. Podemos já vislumbrar
+        o modo pelo qual a mobilidade dos capitais internacionais garante a
+        contribuição de um grupo importante na determinação dos relacionamentos
+        verticais entre as hierarquias.
+      </p>
+
+      <p>
+        Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se
+        a valorização de fatores subjetivos deve passar por modificações
+        independentemente dos conhecimentos estratégicos para atingir a
+        excelência. O cuidado em identificar pontos críticos no fenômeno da
+        Internet cumpre um papel essencial na formulação do fluxo de
+        informações.
+      </p>
+
+      <p>
+        Nunca é demais lembrar o peso e o significado destes problemas, uma vez
+        que a consulta aos diversos militantes prepara-nos para enfrentar
+        situações atípicas decorrentes de todos os recursos funcionais
+        envolvidos. É importante questionar o quanto o aumento do diálogo entre
+        os diferentes setores produtivos maximiza as possibilidades por conta do
+        orçamento setorial.
+      </p>
+    </div>
+  </div>
+  <div class="about">
+    <div class="about__bubble">
+      <h4 class="bubble__title">Programa Desenvolve Fullstack</h4>
+      <div class="bubble__location">Grupo Boticário</div>
+      <div class="bubble__logo">
+        <Fragment set:html={logoDesenvolva.default} />
+      </div>
+      <div class="bubble__date">2023</div>
+    </div>
+    <div class="about__bubble">
+      <h4 class="bubble__title">Mestrado em Ecologia</h4>
+      <div class="bubble__location">Univerisdade de Campinas</div>
+      <div class="bubble__logo">
+        <Fragment set:html={logoUnicamp.default} />
+      </div>
+      <div class="bubble__date">2019 - 2023</div>
+    </div>
+    <div class="about__bubble">
+      <h4 class="bubble__title">Graduação em Ciências Biológicas</h4>
+      <div class="bubble__location">Universidade de São Paulo</div>
+      <div class="bubble__logo">
+        <Fragment set:html={logoUsp.default} />
+      </div>
+      <div class="bubble__date">2010 - 2015</div>
+    </div>
+    <div class="about__bubble">
+      <h4 class="bubble__title">Ciências Sem Fronteiras</h4>
+      <div class="bubble__location">University of Southampton</div>
+      <div class="bubble__logo">
+        <Fragment set:html={logoSouthampton.default} />
+      </div>
+      <div class="bubble__date">2013 - 2014</div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .about__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    row-gap: var(--space-2xl);
+  }
+
+  .about__card {
+    @include card;
+
+    h2 {
+      font-size: var(--step-3);
+    }
+  }
+
+  .about__text {
+    margin-top: var(--space-m);
+  }
+
+  .about {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+
+    --line-width: calc(var(--step--2) / 2);
+    --left-margin: var(--space-l-xl);
+    --circle-size: var(--step-0);
+    --distance: var(--space-2xl);
+
+    &::after {
+      position: absolute;
+      background-color: var(--danger);
+      width: var(--line-width);
+      height: calc(100% + (var(--distance) * 2));
+      top: calc(var(--distance) * -1);
+      left: calc(var(--left-margin) - (var(--line-width) / 2));
+      content: "";
+      z-index: -10;
+    }
+  }
+
+  .bubble__logo {
+    color: var(--bg-details);
+    width: var(--space-xl-2xl);
+    height: var(--space-xl-2xl);
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+
+    :global(svg) {
+      fill: currentColor;
+      height: var(--space-xl-2xl);
+      opacity: 0.5;
+    }
+  }
+
+  .bubble__title {
+    font-size: var(--step-1);
+    padding-right: calc(var(--space-xl-2xl) + 0.5rem);
+  }
+
+  .about__bubble {
+    @include shadow;
+    // width: calc(100% - var(--left-margin) * 2);
+    line-height: 1.5;
+    margin-bottom: var(--space-xl);
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    margin-left: calc(var(--left-margin) * 2);
+    position: relative;
+  }
+
+  .about__bubble::before {
+    content: "";
+    width: var(--circle-size);
+    height: var(--circle-size);
+    left: calc((var(--left-margin) * -1) - (var(--circle-size) / 2));
+    top: calc((var(--step-0) * 0.75) + 0.5rem - (var(--circle-size) / 4));
+    border-radius: 100%;
+    background-color: var(--bg);
+    border: solid 3px var(--danger);
+    position: absolute;
+  }
+
+  .about__bubble::after {
+    content: "";
+    z-index: -5;
+    height: var(--line-width);
+    width: calc(var(--left-margin) * 1.3);
+    top: calc((var(--step-0) * 0.75) + 0.5rem + (var(--line-width) / 4));
+    position: absolute;
+    left: calc((var(--left-margin) * -1) - (var(--circle-size) / 4));
+    background-color: var(--danger);
+  }
+</style>
