@@ -3,6 +3,7 @@ import NavBar from "@components/NavBar.astro";
 import TheHead from "@components/TheHead.astro";
 
 import "@/styles/index.scss";
+import TheFooter from "@components/TheFooter.astro";
 
 interface Props {
   pageName: string;
@@ -21,4 +22,7 @@ const title = `Renato Lacerda | ${pageName}`;
   <main>
     <slot />
   </main>
+  <footer>
+    <TheFooter />
+  </footer>
 </html>
