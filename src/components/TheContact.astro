@@ -33,11 +33,32 @@ const logoCodePen = (await import("~icons/simple-icons/codepen?raw")).default;
     </div>
     <div class="contact__social">
       <ul role="list">
-        <li><a href="/"><Fragment set:html={logoLinkedin} />Linkedin</a></li>
-        <li><a href="/"><Fragment set:html={logoGitHub} />GitHub</a></li>
-        <li><a href="/"><Fragment set:html={logoCodePen} />CodePen</a></li>
-        <li><a href="/"><Fragment set:html={logoMastodon} />Mastodon</a></li>
-        <li><a href="/"><Fragment set:html={logoTwitter} />Twitter</a></li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/renato-ac-lacerda/"
+            target="_blank"><Fragment set:html={logoLinkedin} />Linkedin</a
+          >
+        </li>
+        <li>
+          <a href="https://github.com/ralacerda" target="_blank"
+            ><Fragment set:html={logoGitHub} />GitHub</a
+          >
+        </li>
+        <li>
+          <a href="https://codepen.io/ralacerda" target="_blank"
+            ><Fragment set:html={logoCodePen} />CodePen</a
+          >
+        </li>
+        <li>
+          <a href="https://hachyderm.io/@renato" target="_blank"
+            ><Fragment set:html={logoMastodon} />Mastodon</a
+          >
+        </li>
+        <li>
+          <a href="https://twitter.com/renatoaclacerda" target="_blank"
+            ><Fragment set:html={logoTwitter} />Twitter</a
+          >
+        </li>
       </ul>
     </div>
   </div>
@@ -139,6 +160,7 @@ const logoCodePen = (await import("~icons/simple-icons/codepen?raw")).default;
     textarea {
       flex: 1 1 30ch;
       @include card-max-width;
+      width: 100%;
       border: 1px solid var(--bg-secondary);
       border-radius: 4px;
       background-color: var(--form-background);
