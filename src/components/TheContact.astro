@@ -1,0 +1,202 @@
+---
+const logoTwitter = (await import("~icons/simple-icons/twitter?raw")).default;
+const logoLinkedin = (await import("~icons/simple-icons/linkedin?raw")).default;
+const logoMastodon = (await import("~icons/simple-icons/Mastodon?raw")).default;
+const logoGitHub = (await import("~icons/simple-icons/github?raw")).default;
+const logoCodePen = (await import("~icons/simple-icons/codepen?raw")).default;
+---
+
+<div class="contact">
+  <h2>Contato</h2>
+  <div class="contact__text">
+    <p>
+      Atualmente estou em busca de uma oportunidade como Desenvolvedor Júnior.
+    </p><p>
+      Se você acredita que eu sou um bom candidato para uma vaga, ou se possuí
+      alguma sugestão ou comentário, você pode me mandar uma mensagem utilizando
+      esse formulário ou as redes sociais abaixo.
+    </p>
+  </div>
+  <div class="contact__grid">
+    <div class="contact__email">
+      <form name="contact" method="POST">
+        <div class="contact__info">
+          <label>Nome: <input type="text" name="name" required /></label>
+          <label>Email:&nbsp;<input type="email" name="email" required /></label
+          >
+        </div>
+        <div class="contact__body">
+          <textarea class="text" rows="20" name="body" required></textarea>
+        </div>
+        <button type="submit">Enviar mensagem</button>
+      </form>
+    </div>
+    <div class="contact__social">
+      <ul role="list">
+        <li><a href="/"><Fragment set:html={logoLinkedin} />Linkedin</a></li>
+        <li><a href="/"><Fragment set:html={logoGitHub} />GitHub</a></li>
+        <li><a href="/"><Fragment set:html={logoCodePen} />CodePen</a></li>
+        <li><a href="/"><Fragment set:html={logoMastodon} />Mastodon</a></li>
+        <li><a href="/"><Fragment set:html={logoTwitter} />Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    const inputs = document.querySelectorAll("input, textarea");
+
+    inputs.forEach((input) => {
+      input.addEventListener(
+        "invalid",
+        (event) => {
+          input.classList.add("error");
+        },
+        false
+      );
+    });
+  </script>
+
+  <style lang="scss">
+    .contact {
+      @include card;
+    }
+
+    .contact__grid {
+      display: flex;
+      column-gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: var(--space-m);
+    }
+
+    p {
+      @include card-max-width;
+      width: 100%;
+    }
+
+    h2 {
+      font-size: var(--step-3);
+    }
+
+    ul {
+      padding: 0;
+    }
+
+    .contact__text {
+      max-width: 90ch;
+      line-height: 1.6;
+      margin-top: var(--space-m);
+    }
+
+    .contact__social {
+      flex: 1 1 150px;
+      margin-top: 0.2rem;
+    }
+
+    .contact__social a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: fit-content;
+      position: relative;
+      padding: 1rem 1rem;
+      font-size: var(--step-1);
+      font-weight: 600;
+
+      text-decoration: none;
+
+      &:hover {
+        color: var(--danger);
+
+        &::before {
+          background-color: var(--danger);
+          transform: scaleX(300%);
+          transition: transform 150ms, color 100ms;
+        }
+      }
+
+      &::before {
+        transition: transform 100ms, color 100ms;
+        transform-origin: left;
+
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        width: 0.2rem;
+        height: 100%;
+        background-color: var(--fg);
+      }
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      column-gap: 0.4rem;
+      @include card-max-width;
+    }
+
+    input,
+    textarea {
+      flex: 1 1 30ch;
+      @include card-max-width;
+      border: 1px solid var(--bg-secondary);
+      border-radius: 4px;
+      background-color: var(--form-background);
+      outline: none;
+      color: var(--form-fg);
+      padding: 0.2rem 0.5rem;
+
+      &:is(:active, :focus) {
+        border: 1px solid var(--form-hl);
+        box-shadow: 0 0 2px 1px var(--form-hl-shadows);
+      }
+
+      &.error {
+        background-color: var(--form-background);
+        box-shadow: 0 0 2px 1px var(--form-hl-shadows);
+        border: 1px solid var(--danger);
+
+        &:is(:active, :focus) {
+          border: 1px solid var(--danger);
+        }
+      }
+    }
+
+    textarea {
+      width: 100%;
+    }
+
+    .contact__email {
+      flex: 1 1 600px;
+
+      button {
+        margin-top: var(--space-s);
+        @include shadow;
+        text-decoration: none;
+        transition: background-color 200ms;
+        border: solid 1px var(--fg);
+        background-color: var(--bg-primary);
+        padding: 0.2rem 1rem;
+        border-radius: 0.5rem;
+        color: var(--fg);
+        line-height: 1.4;
+        &:hover,
+        &:focus-visible {
+          cursor: pointer;
+          color: var(--form-background);
+          background-color: var(--form-fg);
+        }
+      }
+    }
+
+    .contact__body {
+      margin-top: var(--space-s);
+    }
+
+    .contact__info {
+      display: grid;
+      column-gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(35ch, 1fr));
+    }
+  </style>
+</div>

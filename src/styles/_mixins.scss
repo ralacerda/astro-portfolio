@@ -39,3 +39,7 @@
   border-radius: 0.5rem;
   padding: var(--space-m) var(--space-l-xl);
 }
+
+@mixin card-max-width {
+  max-width: calc(clamp(16rem, 90vw, 90rem) - (2 * var(--space-l-xl)));
+}
