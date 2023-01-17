@@ -63,163 +63,163 @@ const logoCodePen = (await import("~icons/simple-icons/codepen?raw")).default;
       </ul>
     </div>
   </div>
+</div>
 
-  <script>
-    const inputs = document.querySelectorAll("input, textarea");
+<script>
+  const inputs = document.querySelectorAll("input, textarea");
 
-    inputs.forEach((input) => {
-      input.addEventListener(
-        "invalid",
-        (event) => {
-          input.classList.add("error");
-        },
-        false
-      );
-    });
-  </script>
+  inputs.forEach((input) => {
+    input.addEventListener(
+      "invalid",
+      (event) => {
+        input.classList.add("error");
+      },
+      false
+    );
+  });
+</script>
 
-  <style lang="scss">
-    .contact {
-      @include card;
-    }
+<style lang="scss">
+  .contact {
+    @include card;
+  }
 
-    .contact__grid {
-      display: flex;
-      column-gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: var(--space-m);
-    }
+  .contact__grid {
+    display: flex;
+    column-gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: var(--space-m);
+  }
 
-    p {
-      @include card-max-width;
-      width: 100%;
-    }
+  p {
+    @include card-max-width;
+    width: 100%;
+  }
 
-    h2 {
-      font-size: var(--step-3);
-    }
+  h2 {
+    font-size: var(--step-3);
+  }
 
-    ul {
-      padding: 0;
-    }
+  ul {
+    padding: 0;
+  }
 
-    .contact__text {
-      max-width: 90ch;
-      line-height: 1.6;
-      margin-top: var(--space-m);
-    }
+  .contact__text {
+    max-width: 90ch;
+    line-height: 1.6;
+    margin-top: var(--space-m);
+  }
 
-    .contact__social {
-      flex: 1 1 150px;
-      margin-top: 0.2rem;
-    }
+  .contact__social {
+    flex: 1 1 150px;
+    margin-top: 0.2rem;
+  }
 
-    .contact__social a {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      width: fit-content;
-      position: relative;
-      padding: 1rem 1rem;
-      font-size: var(--step-1);
-      font-weight: 600;
+  .contact__social a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: fit-content;
+    position: relative;
+    padding: 1rem 1rem;
+    font-size: var(--step-1);
+    font-weight: 600;
 
-      text-decoration: none;
+    text-decoration: none;
 
-      &:hover {
-        color: var(--danger);
-
-        &::before {
-          background-color: var(--danger);
-          transform: scaleX(300%);
-          transition: transform 150ms, color 100ms;
-        }
-      }
+    &:hover {
+      color: var(--danger);
 
       &::before {
-        transition: transform 100ms, color 100ms;
-        transform-origin: left;
-
-        position: absolute;
-        content: "";
-        left: 0;
-        top: 0;
-        width: 0.2rem;
-        height: 100%;
-        background-color: var(--fg);
+        background-color: var(--danger);
+        transform: scaleX(300%);
+        transition: transform 150ms, color 100ms;
       }
     }
 
-    label {
-      display: flex;
-      align-items: center;
-      column-gap: 0.4rem;
-      @include card-max-width;
+    &::before {
+      transition: transform 100ms, color 100ms;
+      transform-origin: left;
+
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 0;
+      width: 0.2rem;
+      height: 100%;
+      background-color: var(--fg);
+    }
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    column-gap: 0.4rem;
+    @include card-max-width;
+  }
+
+  input,
+  textarea {
+    flex: 1 1 30ch;
+    @include card-max-width;
+    width: 100%;
+    border: 1px solid var(--bg-secondary);
+    border-radius: 4px;
+    background-color: var(--form-background);
+    outline: none;
+    color: var(--form-fg);
+    padding: 0.2rem 0.5rem;
+
+    &:is(:active, :focus) {
+      border: 1px solid var(--form-hl);
+      box-shadow: 0 0 2px 1px var(--form-hl-shadows);
     }
 
-    input,
-    textarea {
-      flex: 1 1 30ch;
-      @include card-max-width;
-      width: 100%;
-      border: 1px solid var(--bg-secondary);
-      border-radius: 4px;
+    &.error {
       background-color: var(--form-background);
-      outline: none;
-      color: var(--form-fg);
-      padding: 0.2rem 0.5rem;
+      box-shadow: 0 0 2px 1px var(--form-hl-shadows);
+      border: 1px solid var(--danger);
 
       &:is(:active, :focus) {
-        border: 1px solid var(--form-hl);
-        box-shadow: 0 0 2px 1px var(--form-hl-shadows);
-      }
-
-      &.error {
-        background-color: var(--form-background);
-        box-shadow: 0 0 2px 1px var(--form-hl-shadows);
         border: 1px solid var(--danger);
-
-        &:is(:active, :focus) {
-          border: 1px solid var(--danger);
-        }
       }
     }
+  }
 
-    textarea {
-      resize: none;
-    }
+  textarea {
+    resize: none;
+  }
 
-    .contact__email {
-      flex: 1 1 600px;
+  .contact__email {
+    flex: 1 1 600px;
 
-      button {
-        margin-top: var(--space-s);
-        @include shadow;
-        text-decoration: none;
-        transition: background-color 200ms;
-        border: solid 1px var(--fg);
-        background-color: var(--bg-primary);
-        padding: 0.2rem 1rem;
-        border-radius: 0.5rem;
-        color: var(--fg);
-        line-height: 1.4;
-        &:hover,
-        &:focus-visible {
-          cursor: pointer;
-          color: var(--form-background);
-          background-color: var(--form-fg);
-        }
-      }
-    }
-
-    .contact__body {
+    button {
       margin-top: var(--space-s);
+      @include shadow;
+      text-decoration: none;
+      transition: background-color 200ms;
+      border: solid 1px var(--fg);
+      background-color: var(--bg-primary);
+      padding: 0.2rem 1rem;
+      border-radius: 0.5rem;
+      color: var(--fg);
+      line-height: 1.4;
+      &:hover,
+      &:focus-visible {
+        cursor: pointer;
+        color: var(--form-background);
+        background-color: var(--form-fg);
+      }
     }
+  }
 
-    .contact__info {
-      display: grid;
-      column-gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(35ch, 1fr));
-    }
-  </style>
-</div>
+  .contact__body {
+    margin-top: var(--space-s);
+  }
+
+  .contact__info {
+    display: grid;
+    column-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(35ch, 1fr));
+  }
+</style>
