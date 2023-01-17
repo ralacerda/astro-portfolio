@@ -1,4 +1,6 @@
 ---
+import { Content as ContactMeText } from "@/data/contact-me.md";
+
 const logoTwitter = (await import("~icons/simple-icons/twitter?raw")).default;
 const logoLinkedin = (await import("~icons/simple-icons/linkedin?raw")).default;
 const logoMastodon = (await import("~icons/simple-icons/Mastodon?raw")).default;
@@ -9,13 +11,7 @@ const logoCodePen = (await import("~icons/simple-icons/codepen?raw")).default;
 <div class="contact">
   <h2>Contato</h2>
   <div class="contact__text">
-    <p>
-      Atualmente estou em busca de uma oportunidade como Desenvolvedor Júnior.
-    </p><p>
-      Se você acredita que eu sou um bom candidato para uma vaga, ou se possuí
-      alguma sugestão ou comentário, você pode me mandar uma mensagem utilizando
-      o formulário abaixo ou pelas redes sociais.
-    </p>
+    <ContactMeText />
   </div>
   <div class="contact__grid">
     <div class="contact__email">
