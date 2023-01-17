@@ -19,8 +19,21 @@ const logoCodePen = (await import("~icons/simple-icons/codepen?raw")).default;
   </div>
   <div class="contact__grid">
     <div class="contact__email">
-      <form name="contact" method="POST" data-netlify="true">
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
         <div class="contact__info">
+          <label class="honey-pot" aria-hidden="true">
+            Don't fill this out if you're human: <input
+              name="bot-field"
+              tabindex="-1"
+              class="honey-pot"
+              aria-hidden="true"
+            />
+          </label>
           <label>Nome: <input type="text" name="name" required /></label>
           <label>Email:&nbsp;<input type="email" name="email" required /></label
           >
@@ -221,5 +234,14 @@ const logoCodePen = (await import("~icons/simple-icons/codepen?raw")).default;
     display: grid;
     column-gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(35ch, 1fr));
+  }
+
+  .honey-pot {
+    clip-path: circle(0);
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 </style>
