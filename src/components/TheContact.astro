@@ -99,7 +99,7 @@ const logoCodePen = (await import("~icons/simple-icons/codepen?raw")).default;
 
   .contact__grid {
     display: flex;
-    column-gap: 2rem;
+    gap: var(--space-m);
     flex-wrap: wrap;
     margin-top: var(--space-m);
   }
@@ -124,7 +124,7 @@ const logoCodePen = (await import("~icons/simple-icons/codepen?raw")).default;
   }
 
   .contact__social {
-    flex: 1 1 150px;
+    flex: 1 1 180px;
     margin-top: 0.2rem;
   }
 
@@ -132,10 +132,10 @@ const logoCodePen = (await import("~icons/simple-icons/codepen?raw")).default;
     color: var(--gray);
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--space-s);
     width: fit-content;
     position: relative;
-    padding: 1rem 1rem;
+    padding: var(--space-s);
     font-size: var(--step-1);
     font-weight: 600;
 
