@@ -1,6 +1,5 @@
 ---
-import aboutImage from "@/assets/images/about-image.jpeg";
-import { Image } from "@astrojs/image/components";
+import { Content as AboutMeText } from "@/data/about-me.md";
 
 const logoUnicamp = await import("@/assets/logos/unicamp.svg?raw");
 const logoUsp = await import("@/assets/logos/usp.svg?raw");
@@ -12,31 +11,7 @@ const logoDesenvolva = await import("@/assets/logos/desenvolva.svg?raw");
   <div class="about__card">
     <h2>Sobre mim</h2>
     <div class="about__text">
-      <p>
-        Pensando mais a longo prazo, a crescente influência da mídia é uma das
-        consequências dos modos de operação convencionais. Podemos já vislumbrar
-        o modo pelo qual a mobilidade dos capitais internacionais garante a
-        contribuição de um grupo importante na determinação dos relacionamentos
-        verticais entre as hierarquias.
-      </p>
-
-      <p>
-        Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se
-        a valorização de fatores subjetivos deve passar por modificações
-        independentemente dos conhecimentos estratégicos para atingir a
-        excelência. O cuidado em identificar pontos críticos no fenômeno da
-        Internet cumpre um papel essencial na formulação do fluxo de
-        informações.
-      </p>
-
-      <p>
-        Nunca é demais lembrar o peso e o significado destes problemas, uma vez
-        que a consulta aos diversos militantes prepara-nos para enfrentar
-        situações atípicas decorrentes de todos os recursos funcionais
-        envolvidos. É importante questionar o quanto o aumento do diálogo entre
-        os diferentes setores produtivos maximiza as possibilidades por conta do
-        orçamento setorial.
-      </p>
+      <AboutMeText />
     </div>
   </div>
   <div class="about">
