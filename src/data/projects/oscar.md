@@ -1,6 +1,5 @@
 ---
-title: "Oscar"
-imageSrc: "src/assets/images/project-oscar.png"
+title: "Nomeações Oscar"
 weight: 50
 tech: [Astro, Typescript]
 ---

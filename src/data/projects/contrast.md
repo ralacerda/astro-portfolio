@@ -1,6 +1,5 @@
 ---
 title: "Contrast Checker"
-imageSrc: "src/assets/images/project-contrast.png"
 weight: 40
 tech: [Vue, Nuxt]
 ---
