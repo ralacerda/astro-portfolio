@@ -24,7 +24,7 @@ const projects = await getProjects(posts);
   </div>
 
   <div class="projetos__filter">
-    <ProjectFilter client:idle projects={projects} />
+    <ProjectFilter client:load projects={projects} />
   </div>
 </Layout>
 
