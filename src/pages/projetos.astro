@@ -1,0 +1,40 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getPicture } from "@astrojs/image";
+// @ts-ignore
+import ProjectFilter from "@components/ProjectFilter.vue";
+import { getProjects } from "@/composables/getProjects";
+
+const posts = await Astro.glob("../data/projects/*.md");
+
+const projects = await getProjects(posts);
+---
+
+<Layout pageName="Vue Filter">
+  <div class="projetos__texto">
+    <h1>Projetos</h1>
+    <p>Eu faço projetos aqui e ali</p>
+    <p>É uma ótima forma de aprender tecnologias novas</p>
+    <p>Todos os projetos abaixo são open source</p>
+    <p>Eu acredito que isso beneficia todos</p>
+    <p>
+      Usando os ícones abaixo, você pode filtrar os projetos pelas ferramentas
+      usadas
+    </p>
+  </div>
+
+  <div class="projetos__filter">
+    <ProjectFilter client:idle projects={projects} />
+  </div>
+</Layout>
+
+<style lang="scss">
+  h1 {
+    font-size: var(--step-3);
+  }
+
+  .projetos__filter {
+    @include card;
+    @include centered-content;
+  }
+</style>
