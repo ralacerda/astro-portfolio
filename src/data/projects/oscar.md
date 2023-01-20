@@ -1,7 +1,8 @@
 ---
 title: "Nomeações Oscar"
+slug: oscar
 weight: 50
-tech: [Astro, Typescript]
+tech: [SASS, Typescript, Astro, Node, Mongo, Firebase]
 ---
 
 Esse projeto buscou criar uma forma fácil de mostrar os filmes nominados e vencedores da Premiação do Oscar de cada ano. Além de uma visão geral de todos os filmes nomiados naquele determinado ano, há também uma página para cada premiação.

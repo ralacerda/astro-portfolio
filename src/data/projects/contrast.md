@@ -1,7 +1,8 @@
 ---
 title: "Contrast Checker"
+slug: "contraste"
 weight: 40
-tech: [Vue, Nuxt]
+tech: [SASS, Javascript, Vue, Bulma, Vite, Netlify]
 ---
 
 Esse projeto buscou criar uma forma fácil de mostrar os filmes nominados e vencedores da Premiação do Oscar de cada ano. Além de uma visão geral de todos os filmes nomiados naquele determinado ano, há também uma página para cada premiação.

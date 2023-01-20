@@ -1,6 +1,7 @@
 const icons = {
   Bash: (await import("~icons/simple-icons/gnubash?raw")).default,
   Git: (await import("~icons/simple-icons/git?raw")).default,
+  GitHub: (await import("~icons/simple-icons/github?raw")).default,
   HTML5: (await import("~icons/simple-icons/html5?raw")).default,
   CSS3: (await import("~icons/simple-icons/css3?raw")).default,
   SASS: (await import("~icons/simple-icons/sass?raw")).default,
@@ -15,6 +16,9 @@ const icons = {
   Bulma: (await import("~icons/simple-icons/bulma?raw")).default,
   Netlify: (await import("~icons/simple-icons/netlify?raw")).default,
   Vite: (await import("~icons/simple-icons/vite?raw")).default,
+  Eleventy: (await import("~icons/simple-icons/eleventy?raw")).default,
+  Tailwind: (await import("~icons/simple-icons/tailwindcss?raw")).default,
+  Alpine: (await import("~icons/simple-icons/alpinedotjs?raw")).default,
 };
 
 export type Tech = keyof typeof icons;

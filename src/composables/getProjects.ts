@@ -3,21 +3,23 @@ import type { GetPictureResult } from "@astrojs/image/dist/lib/get-picture";
 import type { MarkdownInstance } from "astro";
 import type { Tech } from "./getIcon";
 
-import contrastScreenshot from "@/assets/images/project-contrast.png";
+import contrasteScreenshot from "@/assets/images/project-contraste.png";
 import oscarScreenshot from "@/assets/images/project-oscar.png";
+import coloquioScreenshot from "@/assets/images/project-coloquio.png";
 
 const projectScreenshot: Record<string, ImageMetadata> = {
-  "Contrast Checker": contrastScreenshot,
-  "Nomeações Oscar": oscarScreenshot,
+  contraste: contrasteScreenshot,
+  oscar: oscarScreenshot,
+  coloquio: coloquioScreenshot,
 };
 
-async function getAstroPicture(src: string) {
+async function getAstroPicture(slug: string) {
   return await getPicture({
-    src: projectScreenshot[src],
+    src: projectScreenshot[slug],
     alt: "Something",
-    widths: [300],
+    widths: [600],
     formats: ["webp"],
-    aspectRatio: "1:1",
+    aspectRatio: "3:2",
   });
 }
 
@@ -27,6 +29,7 @@ export type Project = {
   content: string;
   image: GetPictureResult;
   tech: Tech[];
+  slug: string;
 };
 
 export async function getProjects(
@@ -36,9 +39,10 @@ export async function getProjects(
     projectGlob.map(async (project) => {
       return {
         title: project.frontmatter.title,
+        slug: project.frontmatter.slug,
         weight: project.frontmatter.weight,
         content: project.compiledContent(),
-        image: await getAstroPicture(project.frontmatter.title),
+        image: await getAstroPicture(project.frontmatter.slug),
         tech: project.frontmatter.tech,
       };
     })
