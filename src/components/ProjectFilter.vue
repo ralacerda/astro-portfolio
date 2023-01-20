@@ -11,10 +11,18 @@ const props = defineProps<{
   projects: Project[];
 }>();
 
-const all = "Todos projetos";
+const all = "Todos";
 
 const value: Ref<Tech | typeof all> = ref(all);
-const filterValues: (typeof all | Tech)[] = [all, "Vue", "Astro"];
+const filterValues: (typeof all | Tech)[] = [
+  all,
+  "Vue",
+  "Astro",
+  "Typescript",
+  "Javascript",
+  "Tailwind",
+  "CSS3",
+];
 
 function sortProject(prev: Project, next: Project) {
   return next.weight - prev.weight;
@@ -38,27 +46,53 @@ const projectsFiltered = computed(() => {
 </script>
 
 <template>
-  <div class="filter__control">
-    <div v-for="tech in filterValues" :key="tech">
-      <input
-        type="radio"
-        name="fav_language"
-        :value="tech"
-        v-model="value"
-        :id="tech"
-      />
-      <label v-html="getFilterIcon(tech)" :for="tech"></label>
+  <div class="filter">
+    <div class="filter__controls">
+      <!-- <h2>{{ value }}</h2> -->
+
+      <div class="filter__icons">
+        <template v-for="tech in filterValues" :key="tech">
+          <input
+            type="radio"
+            name="fav_language"
+            :value="tech"
+            v-model="value"
+            :id="tech"
+          />
+          <label v-html="getFilterIcon(tech)" :for="tech"></label>
+        </template>
+      </div>
+    </div>
+    <div class="filter__result">
+      <TransitionGroup name="list">
+        <template
+          v-for="project in projectsFiltered"
+          :key="project.title"
+          class="filter__projects"
+        >
+          <ProjectCard :project="project" />
+        </template>
+      </TransitionGroup>
     </div>
   </div>
-  <h3>{{ value }}</h3>
-  <TransitionGroup name="list">
-    <div v-for="project in projectsFiltered" :key="project.title">
-      <ProjectCard :project="project" />
-    </div>
-  </TransitionGroup>
 </template>
 
 <style lang="scss">
+.filter__controls {
+  border-bottom: 1px solid var(--fg-details);
+  margin-bottom: var(--space-m);
+}
+
+.filter__icons {
+  position: sticky;
+  top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  margin-block: var(--space-s);
+  font-size: var(--step-3);
+}
+
 .list-move, /* apply transition to moving elements */
 .list-enter-active,
 .list-leave-active {
@@ -68,13 +102,14 @@ const projectsFiltered = computed(() => {
 .list-enter-from,
 .list-leave-to {
   opacity: 0;
-  transform: translateX(30px);
+  transform: translateY(50%);
 }
 
 /* ensure leaving items are taken out of layout flow so that moving
    animations can be calculated correctly. */
 .list-leave-active {
   position: absolute;
+  width: calc(clamp(16rem, 90vw, 90rem) - (var(--space-l-xl) * 2));
 }
 
 .filter__control {
@@ -95,7 +130,6 @@ input {
 
 input + label {
   color: var(--gray);
-  font-size: var(--step-3);
 }
 
 input:checked + label {

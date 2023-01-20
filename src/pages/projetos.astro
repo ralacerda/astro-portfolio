@@ -12,23 +12,25 @@ const projects = await getProjects(posts);
 ---
 
 <Layout pageName="Vue Filter">
-  <div class="projetos__texto">
-    <h1>Projetos</h1>
-    <ProjetoTexto />
-  </div>
+  <div class="projetos">
+    <div class="projetos__texto">
+      <h1>Projetos</h1>
+      <ProjetoTexto />
+    </div>
 
-  <div class="projetos__filter">
-    <ProjectFilter client:load projects={projects} />
+    <div>
+      <ProjectFilter client:load projects={projects} />
+    </div>
   </div>
 </Layout>
 
 <style lang="scss">
-  h1 {
-    font-size: var(--step-3);
-  }
-
-  .projetos__filter {
+  .projetos {
     @include card;
     @include centered-content;
+  }
+
+  h1 {
+    font-size: var(--step-3);
   }
 </style>

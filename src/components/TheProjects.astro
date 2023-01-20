@@ -1,77 +1,21 @@
 ---
-import ProjectCardSimple from "./ProjectCardSimple.astro";
-import oscarImage from "@/assets/images/project-oscar.png";
-import contrastImage from "@/assets/images/project-contrast.png";
+import ProjectCard from "./ProjectCard.vue";
+import { getProjects } from "@/composables/getProjects";
+
+const projectFiles = await Astro.glob("../data/projects/*.md");
+const projects = await getProjects(projectFiles);
 ---
 
 <div class="projects">
   <h2>Projetos</h2>
-  <ProjectCardSimple
-    title="Nomeações Oscar"
-    imgSrc={oscarImage}
-    link="https://sequelamovies.web.app/"
-    linkReadMore="/projetos/nomeacao-oscar"
-    techList={[
-      "HTML5",
-      "SASS",
-      "Typescript",
-      "Astro",
-      "Node",
-      "Mongo",
-      "Firebase",
-    ]}
-  >
-    <p>
-      Esse projeto buscou criar uma forma fácil de mostrar os filmes nominados e
-      vencedores da Premiação do Oscar de cada ano. Além de uma visão geral de
-      todos os filmes nomiados naquele determinado ano, há também uma página
-      para cada premiação.
-    </p>
-    <p>
-      Cada filme é representado por uma fícha que contém o título em inglês e em
-      portugues, poster, tempo de duração, gêneros, diretor e elenco principal,
-      além de uma lista de todas as categorias que foi indicado.
-    </p>
-    <p>
-      As informações foram coletadas por um script que utiliza uma API e um
-      banco de dados para cruzar as informações de cada filme.
-    </p>
-  </ProjectCardSimple>
-
-  <ProjectCardSimple
-    title="Multiple Contrast Checker"
-    imgSrc={contrastImage}
-    link="https://multiple-contrast-checker.netlify.app/"
-    linkReadMore="/projetos/contrast-checker"
-    techList={[
-      "HTML5",
-      "SASS",
-      "Javascript",
-      "Vue",
-      "Bulma",
-      "Vite",
-      "Netlify",
-    ]}
-  >
-    <p>
-      Esse projeto é um Web App que permite verificar o nível de contraste entre
-      diferentes cores ao mesmo tempo, ajudando a determinar se uma combinação
-      de cor possui o contraste necessário para se encaixar nos parametros de
-      acessibilidade da <a href="https://webaim.org/articles/contrast/">WCGA</a
-      >.
-    </p>
-    <p>
-      É possível adicionar, modificar e remover cores utilizando um seletor de
-      cores ou modificando a representação da cor em RGB. Mesmo após fechar ou
-      reiniciar o Web App, as cores escolhidas permanecem salvas.
-    </p>
-    <p>
-      Uma Matrix de Resultados mostra quais são os valores de contraste entre
-      cada cor de segundo plano e primeiro plano, e se esse valor passa o limiar
-      de contraste requerido pela WCGA. O valor do contraste é exibido em uma
-      caixa que utiliza as cores escolhidas.
-    </p>
-  </ProjectCardSimple>
+  {
+    projects
+      .sort((a, b) => b.weight - a.weight)
+      .slice(0, 2)
+      .map((project) => {
+        return <ProjectCard project={project} />;
+      })
+  }
 
   <a href="/projects/" class="project__button"> Veja todos meus projetos</a>
 </div>
@@ -91,6 +35,7 @@ import contrastImage from "@/assets/images/project-contrast.png";
 
   h2 {
     font-size: var(--step-3);
+    margin-bottom: var(--space-m);
   }
 
   .project__button {
