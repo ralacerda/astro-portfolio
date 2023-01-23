@@ -25,7 +25,8 @@ async function getAstroPicture(slug: string, title: string) {
 export type Project = {
   title: string;
   weight: number;
-  content: string;
+  longContent: string;
+  shortContent: string;
   image: astroHTML.JSX.ImgHTMLAttributes;
   tech: Tech[];
   slug: string;
@@ -36,11 +37,15 @@ export async function getProjects(
 ): Promise<Project[]> {
   return await Promise.all(
     projectGlob.map(async (project) => {
+      const content = project.compiledContent();
+      const [shortContent, longContent] = content.split("<!--read more-->");
+
       return {
         title: project.frontmatter.title,
         slug: project.frontmatter.slug,
         weight: project.frontmatter.weight,
-        content: project.compiledContent(),
+        shortContent,
+        longContent,
         image: await getAstroPicture(
           project.frontmatter.slug,
           project.frontmatter.title

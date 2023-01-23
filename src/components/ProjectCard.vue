@@ -13,7 +13,7 @@ const props = defineProps<{
     <div class="project__flex">
       <div class="project__text">
         <h3 class="project__title">{{ project.title }}</h3>
-        <div v-html="project.content"></div>
+        <div v-html="project.shortContent"></div>
         <a href="/"> Leia mais sobre o projeto</a>
         <ul class="project__icons" role="list">
           <li v-for="icon in project.tech" v-html="getIcon(icon)" />
