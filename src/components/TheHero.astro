@@ -9,12 +9,12 @@ import { Picture } from "@astrojs/image/components";
       alt="Foto de Renato"
       src={heroImage}
       aspectRatio="1:1"
-      height={400}
-      width={400}
-      widths={[300, 400]}
+      height={600}
+      width={600}
+      widths={[300, 600]}
       loading="eager"
       format="webp"
-      sizes="(max-width: 400px) 300px, 400px"
+      sizes="(max-width: 600px) 300px, 600px"
       quality={100}
       class="hero__image"
     />
@@ -38,6 +38,8 @@ import { Picture } from "@astrojs/image/components";
 
   .hero__image {
     height: 100%;
+    max-height: 400px;
+    width: 100%;
     box-shadow: 2px -4px 0 4px var(--danger);
     background-color: var(--danger);
     border-radius: 100%;
