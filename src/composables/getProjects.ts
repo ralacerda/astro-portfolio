@@ -1,5 +1,4 @@
-import { getPicture, getImage } from "@astrojs/image";
-import type { GetPictureResult } from "@astrojs/image/dist/lib/get-picture";
+import { getImage } from "@astrojs/image";
 import type { MarkdownInstance } from "astro";
 import type { Tech } from "./getIcon";
 
@@ -14,19 +13,11 @@ const projectScreenshot: Record<string, ImageMetadata> = {
 };
 
 async function getAstroPicture(slug: string, title: string) {
-  const image = await getImage({
+  return await getImage({
     src: projectScreenshot[slug],
     alt: `Screenshot do projeto ${title}`,
     width: 600,
     format: "webp",
-    aspectRatio: "3:2",
-  });
-
-  return await getPicture({
-    src: <string>image.src,
-    alt: <string>image.alt,
-    widths: [300, 600],
-    formats: ["png", "webp"],
     aspectRatio: "3:2",
   });
 }
@@ -35,7 +26,7 @@ export type Project = {
   title: string;
   weight: number;
   content: string;
-  image: GetPictureResult;
+  image: astroHTML.JSX.ImgHTMLAttributes;
   tech: Tech[];
   slug: string;
 };
