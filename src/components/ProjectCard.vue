@@ -6,7 +6,8 @@ const props = defineProps<{
   project: Project;
 }>();
 
-const src = props.project.image.image.src as string | undefined;
+const image = props.project.image.image;
+console.dir(image);
 </script>
 
 <template>
@@ -22,7 +23,11 @@ const src = props.project.image.image.src as string | undefined;
       </div>
       <div class="project__screenshot-background">
         <a href="/" target="_blank">
-          <img :src="src" class="project__screenshot" />
+          <img :src="<string>image.src" 
+            class="project__screenshot" 
+            :alt="<string>image.alt"
+            :height="<number>image.height" 
+            :width="<number>image.width" />
         </a>
       </div>
     </div>

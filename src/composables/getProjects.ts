@@ -1,4 +1,4 @@
-import { getPicture } from "@astrojs/image";
+import { getPicture, getImage } from "@astrojs/image";
 import type { GetPictureResult } from "@astrojs/image/dist/lib/get-picture";
 import type { MarkdownInstance } from "astro";
 import type { Tech } from "./getIcon";
@@ -13,12 +13,20 @@ const projectScreenshot: Record<string, ImageMetadata> = {
   coloquio: coloquioScreenshot,
 };
 
-async function getAstroPicture(slug: string) {
-  return await getPicture({
+async function getAstroPicture(slug: string, title: string) {
+  const image = await getImage({
     src: projectScreenshot[slug],
-    alt: "Something",
-    widths: [600],
-    formats: ["webp"],
+    alt: `Screenshot do projeto ${title}`,
+    width: 600,
+    format: "webp",
+    aspectRatio: "3:2",
+  });
+
+  return await getPicture({
+    src: <string>image.src,
+    alt: <string>image.alt,
+    widths: [300, 600],
+    formats: ["png", "webp"],
     aspectRatio: "3:2",
   });
 }
@@ -42,7 +50,10 @@ export async function getProjects(
         slug: project.frontmatter.slug,
         weight: project.frontmatter.weight,
         content: project.compiledContent(),
-        image: await getAstroPicture(project.frontmatter.slug),
+        image: await getAstroPicture(
+          project.frontmatter.slug,
+          project.frontmatter.title
+        ),
         tech: project.frontmatter.tech,
       };
     })
