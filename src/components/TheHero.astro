@@ -29,7 +29,7 @@ import { Picture } from "@astrojs/image/components";
 <style lang="scss">
   .hero__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 600px));
     justify-content: center;
     justify-items: center;
     row-gap: var(--space-l);
@@ -38,6 +38,8 @@ import { Picture } from "@astrojs/image/components";
 
   .hero__image {
     height: 100%;
+    max-height: 400px;
+    max-width: 400px;
     box-shadow: 2px -4px 0 4px var(--danger);
     background-color: var(--danger);
     border-radius: 100%;
