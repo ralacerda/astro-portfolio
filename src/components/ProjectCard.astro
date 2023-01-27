@@ -1,0 +1,95 @@
+---
+import { getIcon } from "@/composables/getIcon";
+import type { Project } from "@/composables/getProjects";
+import { Image } from "@astrojs/image/components";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<div class="project">
+  <div class="project__flex">
+    <div class="project__text">
+      <h3 class="project__title">{project.title}</h3>
+      <div class="project__description" set:html={project.shortContent} />
+      <a href="/"> Leia mais sobre o projeto</a>
+      <ul class="project__icons" role="list">
+        {
+          project.tech.map((icon) => {
+            return (
+              <li data-tooltip={icon}>
+                <Fragment set:html={getIcon(icon)} />
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+    <div class="project__screenshot-background">
+      <a href="/" target="_blank">
+        <Image
+          class="project__screenshot"
+          src={project.image.src}
+          alt=`Screenshot do projeto ${project.title}`
+          width={600}
+          format="webp"
+          aspectRatio="3:2"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .project {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .project__flex {
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    row-gap: var(--space-m);
+    column-gap: var(--space-l);
+  }
+
+  .project__description {
+    padding-block: var(--space-s);
+  }
+
+  .project__title {
+    font-size: var(--step-2);
+  }
+
+  .project__icons {
+    display: flex;
+    column-gap: var(--space-m);
+    font-size: var(--step-3);
+    color: var(--bg-details);
+    margin-top: var(--space-m);
+  }
+
+  .project__text {
+    flex: 1 1 400px;
+    // max-width: 70ch;
+  }
+
+  .project__screenshot {
+    height: auto;
+    transition: box-shadow 200ms, transform 200ms;
+    border-radius: 3px;
+    @include shadow;
+
+    &:hover {
+      transform: translate(-0.5rem, -0.5rem);
+    }
+  }
+
+  .project__screenshot-background {
+    border-radius: 4px;
+    background-color: var(--danger);
+  }
+</style>

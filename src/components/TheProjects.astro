@@ -1,5 +1,5 @@
 ---
-import ProjectCard from "./ProjectCard.vue";
+import ProjectCard from "./ProjectCard.astro";
 import { getProjects } from "@/composables/getProjects";
 
 const projectFiles = await Astro.glob("../data/projects/*.md");
@@ -16,7 +16,6 @@ const projects = await getProjects(projectFiles);
         return <ProjectCard project={project} />;
       })
   }
-
   <a href="/projects/" class="project__button"> Veja todos meus projetos</a>
 </div>
 

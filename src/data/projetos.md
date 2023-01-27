@@ -1,9 +1,3 @@
-Eu faço projetos aqui e ali
+Nessa seção, estão reunidos meus principais projetos pessoais, que foram desenvolvidos com o objetivo de fixar meu aprendizado em relação às ferramentas e linguagens utilizadas.
 
-É uma ótima forma de aprender tecnologias novas
-
-Todos os projetos abaixo são open source
-
-Eu acredito que isso beneficia todo
-
-Usando os ícones abaixo, você pode filtrar os projetos pelas ferramentas usadas
+Todos os projetos listados aqui são open source, o que significa que estão disponíveis para a comunidade visualizar, utilizar e contribuir. Isso tem benefícios tanto para mim, pois posso aprender em público, quanto para outros, pois eles podem aprender com meu código e contribuir para melhorá-lo.

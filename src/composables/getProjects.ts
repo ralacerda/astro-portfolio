@@ -12,22 +12,12 @@ const projectScreenshot: Record<string, ImageMetadata> = {
   coloquio: coloquioScreenshot,
 };
 
-async function getAstroPicture(slug: string, title: string) {
-  return await getImage({
-    src: projectScreenshot[slug],
-    alt: `Screenshot do projeto ${title}`,
-    width: 600,
-    format: "webp",
-    aspectRatio: "3:2",
-  });
-}
-
 export type Project = {
   title: string;
   weight: number;
   longContent: string;
   shortContent: string;
-  image: astroHTML.JSX.ImgHTMLAttributes;
+  image: ImageMetadata;
   tech: Tech[];
   slug: string;
 };
@@ -46,10 +36,7 @@ export async function getProjects(
         weight: project.frontmatter.weight,
         shortContent,
         longContent,
-        image: await getAstroPicture(
-          project.frontmatter.slug,
-          project.frontmatter.title
-        ),
+        image: projectScreenshot[project.frontmatter.slug],
         tech: project.frontmatter.tech,
       };
     })

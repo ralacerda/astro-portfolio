@@ -1,10 +1,9 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getPicture } from "@astrojs/image";
 // @ts-ignore
-import ProjectFilter from "@components/ProjectFilter.vue";
 import { Content as ProjetoTexto } from "@/data/projetos.md";
 import { getProjects } from "@/composables/getProjects";
+import ProjectCard from "@components/ProjectCard.astro";
 
 const posts = await Astro.glob("../data/projects/*.md");
 
@@ -17,10 +16,13 @@ const projects = await getProjects(posts);
       <h1>Projetos</h1>
       <ProjetoTexto />
     </div>
-
-    <div>
-      <ProjectFilter client:load projects={projects} />
-    </div>
+    {
+      projects
+        .sort((a, b) => b.weight - a.weight)
+        .map((project) => {
+          return <ProjectCard project={project} />;
+        })
+    }
   </div>
 </Layout>
 
@@ -37,5 +39,6 @@ const projects = await getProjects(posts);
 
   .projetos__texto {
     margin-bottom: var(--space-xl);
+    max-width: 100ch;
   }
 </style>
