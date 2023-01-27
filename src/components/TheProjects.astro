@@ -1,21 +1,10 @@
 ---
-import ProjectCard from "./ProjectCard.astro";
-import { getProjects } from "@/composables/getProjects";
-
-const projectFiles = await Astro.glob("../data/projects/*.md");
-const projects = await getProjects(projectFiles);
+import ProjectList from "@components/ProjectList.astro";
 ---
 
 <div class="projects">
   <h2>Projetos</h2>
-  {
-    projects
-      .sort((a, b) => b.weight - a.weight)
-      .slice(0, 2)
-      .map((project) => {
-        return <ProjectCard project={project} />;
-      })
-  }
+  <ProjectList short={true} />
   <a href="/projects/" class="project__button"> Veja todos meus projetos</a>
 </div>
 
