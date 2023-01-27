@@ -1,3 +1,4 @@
+---
 const icons = {
   Bash: (await import("~icons/simple-icons/gnubash?raw")).default,
   Git: (await import("~icons/simple-icons/git?raw")).default,
@@ -23,10 +24,11 @@ const icons = {
 
 export type Tech = keyof typeof icons;
 
-export function getIconFromArray(list: Tech[]): astroHTML.JSX.Element[] {
-  return list.map((tech) => icons[tech]);
+interface Props {
+  name: Tech;
 }
 
-export function getIcon(tech: Tech): astroHTML.JSX.Element {
-  return icons[tech];
-}
+const { name } = Astro.props;
+---
+
+<Fragment set:html={icons[name]} />

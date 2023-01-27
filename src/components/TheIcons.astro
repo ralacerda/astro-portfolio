@@ -1,6 +1,6 @@
 ---
-import { getIcon } from "@/composables/getIcon";
-import type { Tech } from "@/composables/getIcon";
+import TechIcon from "@components/TechIcon.astro";
+import type { Tech } from "@components/TechIcon.astro";
 
 const icons: Tech[] = [
   "Bash",
@@ -21,7 +21,7 @@ const icons: Tech[] = [
     icons.map((icon) => {
       return (
         <li data-tooltip={icon}>
-          <Fragment set:html={getIcon(icon)} />
+          <TechIcon name={icon} />
         </li>
       );
     })

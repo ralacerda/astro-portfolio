@@ -1,5 +1,5 @@
 ---
-import { getIcon } from "@/composables/getIcon";
+import TechIcon from "@/components/TechIcon.astro";
 import type { Project } from "@/components/ProjectList.astro";
 import { Image } from "@astrojs/image/components";
 
@@ -21,7 +21,7 @@ const { project } = Astro.props;
           project.tech.map((icon) => {
             return (
               <li data-tooltip={icon}>
-                <Fragment set:html={getIcon(icon)} />
+                <TechIcon name={icon} />
               </li>
             );
           })
@@ -33,7 +33,7 @@ const { project } = Astro.props;
         <Image
           class="project__screenshot"
           src={project.image.src}
-          alt=`Screenshot do projeto ${project.title}`
+          alt={`Screenshot do projeto ${project.title}`}
           width={600}
           format="webp"
           aspectRatio="3:2"
