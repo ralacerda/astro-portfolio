@@ -13,7 +13,7 @@ const props = defineProps<{
     <div class="project__flex">
       <div class="project__text">
         <h3 class="project__title">{{ project.title }}</h3>
-        <div v-html="project.shortContent"></div>
+        <div class="project__description" v-html="project.shortContent"></div>
         <a href="/"> Leia mais sobre o projeto</a>
         <ul class="project__icons" role="list">
           <li v-for="icon in project.tech" v-html="getIcon(icon)" />
@@ -37,12 +37,15 @@ const props = defineProps<{
 }
 
 .project__flex {
-  // margin-top: var(--space-s);
   display: flex;
   align-items: start;
   flex-wrap: wrap;
   row-gap: var(--space-m);
   column-gap: var(--space-l);
+}
+
+.project__description {
+  padding-block: var(--space-s);
 }
 
 .project__title {
