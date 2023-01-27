@@ -5,8 +5,8 @@ weight: 40
 tech: [SASS, Javascript, Vue, Bulma, Vite, Netlify]
 ---
 
-Esse projeto buscou criar uma forma fácil de mostrar os filmes nominados e vencedores da Premiação do Oscar de cada ano. Além de uma visão geral de todos os filmes nomiados naquele determinado ano, há também uma página para cada premiação.
+Este projeto é um aplicativo web que permite verificar o nível de contraste entre diferentes cores ao mesmo tempo, ajudando a determinar se uma combinação de cores possui o contraste necessário para atender aos padrões de acessibilidade da [WCAG (Web Content Accessibility Guidelines)](https://webaim.org/articles/contrast/).
 
-Cada filme é representado por uma fícha que contém o título em inglês e em portugues, poster, tempo de duração, gêneros, diretor e elenco principal, além de uma lista de todas as categorias que foi indicado.
+É possível adicionar, modificar e remover cores utilizando um seletor de cores ou modificando a representação da cor em RGB. Mesmo após fechar ou reiniciar o aplicativo web, as cores escolhidas são salvas.
 
-As informações foram coletadas por um script que utiliza uma API e um banco de dados para cruzar as informações de cada filme.
+Uma tabela de resultados exibe os valores de contraste entre a cor de primeiro plano e segundo plano, e se eles atendem aos limites de contraste exigidos pela WCAG. O valor do contraste é exibido em uma caixa que utiliza as cores selecionadas.
