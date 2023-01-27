@@ -80,7 +80,7 @@ const logoCodePen = (await import("~icons/simple-icons/codepen?raw")).default;
   inputs.forEach((input) => {
     input.addEventListener(
       "invalid",
-      (event) => {
+      () => {
         input.classList.add("error");
       },
       false
