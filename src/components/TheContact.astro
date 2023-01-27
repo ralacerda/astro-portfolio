@@ -204,22 +204,12 @@ const logoCodePen = (await import("~icons/simple-icons/codepen?raw")).default;
     flex: 1 1 600px;
 
     button {
+      @include border-button;
       margin-top: var(--space-s);
       @include shadow;
-      text-decoration: none;
-      transition: background-color 200ms;
-      border: solid 1px var(--fg);
       background-color: var(--bg-primary);
-      padding: 0.2rem 1rem;
-      border-radius: 0.5rem;
       color: var(--fg);
-      line-height: 1.4;
-      &:hover,
-      &:focus-visible {
-        cursor: pointer;
-        color: var(--form-background);
-        background-color: var(--form-fg);
-      }
+      cursor: pointer;
     }
   }
 
