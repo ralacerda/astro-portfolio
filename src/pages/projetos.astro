@@ -2,12 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 // @ts-ignore
 import { Content as ProjetoTexto } from "@/data/projetos.md";
-import { getProjects } from "@/composables/getProjects";
-import ProjectCard from "@components/ProjectCard.astro";
-
-const posts = await Astro.glob("../data/projects/*.md");
-
-const projects = await getProjects(posts);
+import ProjectList from "@components/ProjectList.astro";
 ---
 
 <Layout pageName="Vue Filter">
@@ -16,13 +11,7 @@ const projects = await getProjects(posts);
       <h1>Projetos</h1>
       <ProjetoTexto />
     </div>
-    {
-      projects
-        .sort((a, b) => b.weight - a.weight)
-        .map((project) => {
-          return <ProjectCard project={project} />;
-        })
-    }
+    <ProjectList />
   </div>
 </Layout>
 
