@@ -1,48 +1,16 @@
 ---
 import ProjectCard from "@/components/ProjectCard.astro";
-import type { Tech } from "@/components/TechIcon.astro";
-
-import contrasteScreenshot from "@/assets/images/project-contraste.png";
-import oscarScreenshot from "@/assets/images/project-oscar.png";
-import coloquioScreenshot from "@/assets/images/project-coloquio.png";
+import { parseProject } from "@/composables/parseProject";
 
 interface Props {
   short?: boolean;
 }
 
-export type Project = {
-  title: string;
-  weight: number;
-  longContent: string;
-  shortContent: string;
-  image: ImageMetadata;
-  tech: Tech[];
-  slug: string;
-};
-
 const { short = false } = Astro.props;
 
-const projectScreenshot: Record<string, ImageMetadata> = {
-  contraste: contrasteScreenshot,
-  oscar: oscarScreenshot,
-  coloquio: coloquioScreenshot,
-};
-
-const projectList: Project[] = (await Astro.glob("../data/projects/*.md")).map(
-  (project) => {
-    const content = project.compiledContent();
-    const [shortContent, longContent] = content.split("<!--read more-->");
-
-    return {
-      title: project.frontmatter.title,
-      slug: project.frontmatter.slug,
-      weight: project.frontmatter.weight,
-      shortContent,
-      longContent,
-      image: projectScreenshot[project.frontmatter.slug],
-      tech: project.frontmatter.tech,
-    };
-  }
+const projectFiles = await Astro.glob("../data/projects/*.md");
+const projectList = await Promise.all(
+  projectFiles.map(async (project) => await parseProject(project))
 );
 ---
 

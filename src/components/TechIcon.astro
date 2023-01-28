@@ -1,5 +1,5 @@
 ---
-const icons = {
+const icons: Record<Tech, any> = {
   Bash: (await import("~icons/simple-icons/gnubash?raw")).default,
   Git: (await import("~icons/simple-icons/git?raw")).default,
   GitHub: (await import("~icons/simple-icons/github?raw")).default,
@@ -22,8 +22,6 @@ const icons = {
   Alpine: (await import("~icons/simple-icons/alpinedotjs?raw")).default,
 };
 
-export type Tech = keyof typeof icons;
-
 interface Props {
   name: Tech;
 }
@@ -31,4 +29,4 @@ interface Props {
 const { name } = Astro.props;
 ---
 
-<Fragment set:html={icons[name]} />
+<Fragment set:html={icons[name as Tech]} />
