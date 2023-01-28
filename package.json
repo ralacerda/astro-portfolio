@@ -11,7 +11,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.12.1",
+    "@astrojs/image": "^0.13.0",
     "@fontsource/nunito-sans": "^4.5.10",
     "@iconify/json": "^2.2.5",
     "astro": "^2.0.0",
