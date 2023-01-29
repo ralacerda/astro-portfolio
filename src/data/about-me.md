@@ -1,19 +1,7 @@
-Pensando mais a longo prazo, a crescente influência da mídia é uma das
-consequências dos modos de operação convencionais. Podemos já vislumbrar
-o modo pelo qual a mobilidade dos capitais internacionais garante a
-contribuição de um grupo importante na determinação dos relacionamentos
-verticais entre as hierarquias.
+Desde cedo, tive paixão e curiosidade por tecnologia, graças ao contato com computadores por meio de meu pai. Aprendi a utilizar Linux, formatar e particionar computadores, bem como solucionar problemas cotidianos com programação básica.
 
-Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se
-a valorização de fatores subjetivos deve passar por modificações
-independentemente dos conhecimentos estratégicos para atingir a
-excelência. O cuidado em identificar pontos críticos no fenômeno da
-Internet cumpre um papel essencial na formulação do fluxo de
-informações.
+Anos depois, apesar de não trabalhar na área de tecnologia, meu conhecimento anterior foi valioso em tarefas cotidianas e no ambiente acadêmico.
 
-Nunca é demais lembrar o peso e o significado destes problemas, uma vez
-que a consulta aos diversos militantes prepara-nos para enfrentar
-situações atípicas decorrentes de todos os recursos funcionais
-envolvidos. É importante questionar o quanto o aumento do diálogo entre
-os diferentes setores produtivos maximiza as possibilidades por conta do
-orçamento setorial.
+Durante a pandemia, tive a oportunidade de colaborar com a divulgação de um evento acadêmico, criando seu site. Embora tivesse enfrentado desafios iniciais, dediquei-me a aprender e consegui concluir o projeto, reacendendo minha paixão pela programação, especialmente pelo desenvolvimento web.
+
+Desde então, tenho me esforçado para aprimorar meus conhecimentos na área e me preparar para uma mudança de carreira. Atualmente, participo do Programa de Desenvolvimento do Grupo Boticário (Trilha FullStack) e busco oportunidades para começar minha carreira como desenvolvedor front-end.
