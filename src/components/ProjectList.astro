@@ -2,12 +2,6 @@
 import ProjectCard from "@/components/ProjectCard.astro";
 import { parseProject } from "@/composables/parseProject";
 
-interface Props {
-  short?: boolean;
-}
-
-const { short = false } = Astro.props;
-
 const projectFiles = await Astro.glob("../data/projects/*.md");
 const projectList = await Promise.all(
   projectFiles.map(async (project) => await parseProject(project))
@@ -17,7 +11,6 @@ const projectList = await Promise.all(
 {
   projectList
     .sort((a, b) => b.weight - a.weight)
-    .slice(0, short ? 2 : Infinity)
     .map((project) => {
       return <ProjectCard project={project} />;
     })
