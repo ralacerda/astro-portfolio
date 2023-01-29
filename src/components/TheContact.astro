@@ -218,9 +218,13 @@ const logoCodePen = (await import("~icons/simple-icons/codepen?raw")).default;
   }
 
   .contact__info {
-    display: grid;
+    display: flex;
     column-gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(35ch, 1fr));
+    flex-wrap: wrap;
+
+    & > * {
+      flex-grow: 1;
+    }
   }
 
   .honey-pot {
