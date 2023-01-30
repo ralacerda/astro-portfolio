@@ -32,7 +32,7 @@ const { project } = Astro.props;
       </ul>
     </div>
     <div class="project__screenshot-background">
-      <a href="/" target="_blank">
+      <a href={project.link} target="_blank">
         <Image
           class="project__screenshot"
           src={project.image.src}
