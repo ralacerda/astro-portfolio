@@ -1,0 +1,65 @@
+---
+import LightBulb from "~icons/mdi/lightbulb-variant-outline";
+import Console from "~icons/mdi/console-line";
+import Airplane from "~icons/mdi/airplane";
+---
+
+<div class="skills" id="habilidades">
+  <div class="skills__card">
+    <Airplane class="skills__icon" />
+    <h2>Inglês Fluente</h2>
+    <p>
+      Tive a oportunidade de morar e estudar na Inglaterra, o que me permitiu
+      adquirir fluência em Inglês. Esse conhecimento foi crucial para me
+      aprofundar na área de computação.
+    </p>
+  </div>
+
+  <div class="skills__card">
+    <Console class="skills__icon" />
+    <h2>Git, Linux e Open Source</h2>
+    <p>
+      Tenho experiência utilizando GNU/Linux, Linha de Comando, Git e Github.
+      Além disso, contribui com documentação e código de projetos Open Source.
+    </p>
+  </div>
+
+  <div class="skills__card">
+    <LightBulb class="skills__icon" />
+    <h2>Aprendizado Contínuo</h2>
+    <p>
+      Gosto de estar sempre atualizado e aprender novas tecnologias e
+      habilidades. Por isso, sempre procuro fazer cursos online para expandir
+      meus conhecimentos.
+    </p>
+  </div>
+</div>
+
+<style lang="scss">
+  h2 {
+    margin-bottom: var(--step--1);
+    font-size: var(--step-1);
+  }
+
+  .skills__icon {
+    margin-inline: auto;
+    font-size: var(--step-3);
+    color: var(--bg-details);
+    margin-bottom: var(--space-s);
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xl);
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .skills__card {
+    @include card;
+    @include strong-shadow;
+    flex: 1 0 200px;
+    box-sizing: content-box;
+  }
+</style>
