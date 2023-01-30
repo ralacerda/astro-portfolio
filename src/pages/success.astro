@@ -1,0 +1,33 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import SocialContact from "@components/SocialContact.astro";
+---
+
+<Layout pageName="Contato">
+  <div class="contato">
+    <h1>Obrigado pelo mensagem!</h1>
+    <p>
+      Assim que possível entrarei em contato com você. Enquanto isso, você pode
+      me encontrar nos seguintes sites:
+    </p>
+    <div class="contato__social"><SocialContact /></div>
+    <a class="return" href="/"> Volte para o portfólio</a>
+  </div>
+</Layout>
+
+<style lang="scss">
+  .contato__social {
+    margin-block: var(--space-l);
+  }
+
+  p {
+    margin-top: var(--space-m);
+  }
+
+  .return {
+    width: fit-content;
+    margin-inline: auto;
+    font-size: var(--step-1);
+    @include border-button;
+  }
+</style>
