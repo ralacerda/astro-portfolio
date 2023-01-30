@@ -12,6 +12,8 @@ export async function parseProject(
     longContent,
     image: await getScreenshot(project.frontmatter.slug),
     tech: project.frontmatter.tech,
+    headings: await project.getHeadings(),
+    link: project.frontmatter.link,
   };
 }
 

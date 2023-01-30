@@ -3,6 +3,7 @@ title: "Nomeações Oscar"
 slug: oscar
 weight: 50
 tech: [SASS, Typescript, Astro, Node, Mongo, Firebase]
+link: https://sequelamovies.web.app/
 ---
 
 Este projeto buscou criar uma forma fácil de mostrar os filmes indicados e vencedores do Oscar de cada ano. Além de uma visão geral de todos os filmes indicados naquele determinado ano, há também uma página dedicada para cada categoria de premiação.

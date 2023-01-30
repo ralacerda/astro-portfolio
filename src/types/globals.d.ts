@@ -9,6 +9,8 @@ declare global {
     image: ImageMetadata;
     tech: Tech[];
     slug: string;
+    headings: { depth: number; slug: string; text: string }[];
+    link: string;
   };
 
   type Tech = (typeof TechNames)[number];
