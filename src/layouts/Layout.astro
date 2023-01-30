@@ -9,8 +9,11 @@ interface Props {
   pageName: string;
 }
 
-const { pageName } = Astro.props;
-const title = `Renato Lacerda | ${pageName}`;
+let { pageName } = Astro.props;
+
+const title = pageName
+  ? `Renato Lacerda | ${pageName}`
+  : "Renato Lacerda | Portfólio";
 ---
 
 <!DOCTYPE html>
