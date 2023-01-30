@@ -40,13 +40,23 @@ const title = `Renato Lacerda | ${pageName}`;
       window.localStorage.setItem("theme", theme);
     </script>
   </head>
-  <NavBar />
-  <main>
-    <slot />
-  </main>
-  <footer>
-    <TheFooter />
-  </footer>
+  <body>
+    <!--
+Olá, obrigado por olhar meu portfólio. 
 
+Esse site foi criado utilizando Astro,
+se você quer ler o código fonte,
+ele está disponível no meu github:
 
+https://github.com/ralacerda/astro-portfolio
+-->
+
+    <NavBar />
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <TheFooter />
+    </footer>
+  </body>
 </html>
