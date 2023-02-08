@@ -10,16 +10,9 @@ export async function parseProject(
     weight: project.frontmatter.weight,
     shortContent,
     longContent,
-    image: await getScreenshot(project.frontmatter.slug),
+    images: project.frontmatter.screenshots,
     tech: project.frontmatter.tech,
     headings: await project.getHeadings(),
     link: project.frontmatter.link,
   };
-}
-
-async function getScreenshot(filename: string): Promise<ImageMetadata> {
-  const importedImage = await import(
-    `../assets/images/project-${filename}.png`
-  );
-  return importedImage.default;
 }

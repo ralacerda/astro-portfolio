@@ -6,7 +6,7 @@ declare global {
     weight: number;
     longContent: string;
     shortContent: string;
-    image: ImageMetadata;
+    images: string[];
     tech: Tech[];
     slug: string;
     headings: { depth: number; slug: string; text: string }[];

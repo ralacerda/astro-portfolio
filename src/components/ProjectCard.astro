@@ -33,15 +33,19 @@ const { project } = Astro.props;
     </div>
     <div class="project__screenshot-background">
       <a href={project.link} target="_blank">
-        <Image
-          class="project__screenshot"
-          src={project.image.src}
-          alt={`Screenshot do projeto ${project.title}`}
-          width={600}
-          height={400}
-          format="webp"
-          aspectRatio="3:2"
-        />
+        {
+          project.images.map((image) => (
+            <Image
+              class="project__screenshot"
+              src={image}
+              alt={`Screenshot do projeto ${project.title}`}
+              width={600}
+              height={400}
+              format="webp"
+              aspectRatio="3:2"
+            />
+          ))
+        }
       </a>
     </div>
   </div>
