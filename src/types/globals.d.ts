@@ -11,6 +11,7 @@ declare global {
     slug: string;
     headings: { depth: number; slug: string; text: string }[];
     link: string;
+    repoLink: string;
   };
 
   type Tech = (typeof TechNames)[number];

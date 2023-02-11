@@ -5,6 +5,7 @@ weight: 10
 tech: [Tailwind, Alpine, Eleventy, GitHub]
 link: https://ralacerda.github.io/coloquio-kuhn/
 screenshots: ["./src/assets/images/project-coloquio.png"]
+repoLink: https://github.com/ralacerda/coloquio-kuhn
 ---
 
 Com o objetivo de auxiliar na divulgação do evento acadêmico “Colóquio Thomas Kuhn”, este site foi desenvolvido para incluir informações sobre localização, inscrições, submissão de trabalhos, palestras e programação.

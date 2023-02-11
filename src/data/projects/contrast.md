@@ -5,6 +5,7 @@ weight: 40
 tech: [SASS, Javascript, Vue, Bulma, Vite, Netlify]
 link: https://multiple-contrast-checker.netlify.app/
 screenshots: [./src/assets/images/project-contraste.png]
+repoLink: https://github.com/ralacerda/contrast-checker
 ---
 
 Este projeto é um aplicativo web que permite verificar o nível de contraste entre diferentes cores ao mesmo tempo, ajudando a determinar se uma combinação de cores possui o contraste necessário para atender aos padrões de acessibilidade da [WCAG (Web Content Accessibility Guidelines)](https://webaim.org/articles/contrast/).

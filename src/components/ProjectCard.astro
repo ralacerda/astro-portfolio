@@ -14,11 +14,7 @@ const { project } = Astro.props;
     <div class="project__text">
       <h3 class="project__title">{project.title}</h3>
       <div class="project__description" set:html={project.shortContent} />
-      {
-        project.longContent && (
-          <a href={`/projetos/${project.slug}`}> Leia mais sobre o projeto</a>
-        )
-      }
+      <a href={project.repoLink} target="_blank"> Repositório do projeto</a>
       <ul class="project__icons" role="list">
         {
           project.tech.map((icon) => {

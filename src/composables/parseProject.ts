@@ -14,5 +14,6 @@ export async function parseProject(
     tech: project.frontmatter.tech,
     headings: await project.getHeadings(),
     link: project.frontmatter.link,
+    repoLink: project.frontmatter.repoLink,
   };
 }
