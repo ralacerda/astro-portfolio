@@ -37,4 +37,5 @@ const TechNames = [
   "Eleventy",
   "Tailwind",
   "Alpine",
+  "React",
 ] as const;
