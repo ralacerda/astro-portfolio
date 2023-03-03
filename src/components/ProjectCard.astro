@@ -85,10 +85,13 @@ const { project } = Astro.props;
     height: auto;
     transition: box-shadow 200ms, transform 200ms;
     border-radius: 3px;
+    background-color: var(--bg-secondary);
+
     @include shadow;
 
-    &:hover {
-      transform: translate(-0.5rem, -0.5rem);
+    :is([href$="coloquio-kuhn/"], [href^="https://f1next"]) &
+    {
+      box-shadow: none;
     }
   }
 
