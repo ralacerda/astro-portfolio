@@ -11,7 +11,42 @@ const projectList = await Promise.all(
 {
   projectList
     .sort((a, b) => b.weight - a.weight)
-    .map((project) => {
-      return <ProjectCard project={project} />;
+    .map((project, index) => {
+      return <ProjectCard project={project} index={index} />;
     })
 }
+
+<button id="showMore" data-show="true"> Mostrar mais projetos</button>
+
+<style lang="scss">
+  #showMore {
+    margin-top: var(--space-l);
+    @include border-button;
+  }
+</style>
+
+<style is:global>
+  [data-show="false"] {
+    display: none;
+  }
+
+  [data-show="true"] {
+    display: block;
+  }
+</style>
+
+<script>
+  const showMoreButton = document.querySelector("#showMore") as HTMLElement;
+  const extraProjects = document.querySelectorAll("[data-show]");
+
+  showMoreButton?.addEventListener("click", () => {
+    if (extraProjects) {
+      extraProjects.forEach((project) => {
+        if (project instanceof HTMLElement) {
+          project.dataset.show = "true";
+          showMoreButton.dataset.show = "false";
+        }
+      });
+    }
+  });
+</script>
