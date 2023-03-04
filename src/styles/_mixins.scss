@@ -5,6 +5,8 @@
 }
 
 @mixin border-button {
+  background-color: inherit;
+  cursor: pointer;
   text-decoration: none;
   transition: background-color 200ms;
   border: solid 1px var(--danger);
