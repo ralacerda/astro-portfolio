@@ -89,9 +89,8 @@ const { project } = Astro.props;
 
     @include shadow;
 
-    :is([href$="coloquio-kuhn/"], [href^="https://f1next"]) &
-    {
-      box-shadow: none;
+    &:hover {
+      transform: translate(-0.5rem, -0.5rem);
     }
   }
 
