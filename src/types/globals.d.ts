@@ -39,4 +39,6 @@ const TechNames = [
   "Tailwind",
   "Alpine",
   "React",
+  "Next",
+  "Contentful",
 ] as const;
