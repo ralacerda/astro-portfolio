@@ -10,7 +10,7 @@ interface Props {
 const { project, index } = Astro.props;
 ---
 
-<div class="project" data-show={index > 1 ? "false" : "true"}>
+<div class="project" data-show={index > 2 ? "false" : "true"}>
   <div class="project__flex">
     <div class="project__text">
       <h3 class="project__title">{project.title}</h3>
