@@ -8,8 +8,10 @@ screenshots: [./src/assets/images/project-luminares.png]
 repoLink: https://github.com/ralacerda/luminares
 ---
 
-O objetivo desse projeto foi criar e implementar um design elegante para o site de uma empresa fictícia de arquitetura.
+O objetivo deste projeto foi criar e implementar um design elegante e moderno para o site de uma empresa fictícia de arquitetura, que transmitisse uma imagem profissional e sofisticada.
 
-O principal destaque é uma navegação utilizando um mural, que se trasforma no cabeçalho de cada página. O mural é um `grid` de `css`, e utilizando as informações de navegação, é possível modificar o tamanho de cada linha e coluna, deixando somente a imagem desejada quando um dos links é acessado.
+Um dos principais destaques do site é a navegação por meio de um mural, que se transforma em um cabeçalho para cada página. O mural é um `grid` de `CSS` que utiliza informações de navegação para modificar o tamanho de cada linha e coluna, deixando somente a imagem desejada em destaque quando um dos links é acessado.
 
-Para a realização desse projeto foi utilizado **Nuxt**, **VueJS**, **Typescript** e **SASS**. O site está hospedado no **Netlify**.
+Para a realização deste projeto, foram utilizados **VueJS** e **Typescript**. Com a utilização da framework **Nuxt**, foi possível implementar a transição entre páginas de forma eficiente. Além disso, o uso do pré-processador **SASS** permitiu a criação de `CSS` modular, escalável e com alta facilidade de manutenção.
+
+O site está hospedado na plataforma **Netlify**, que também fornece mecanismos de **CI/CD**, permitindo integração contínua e entrega automatizada.
