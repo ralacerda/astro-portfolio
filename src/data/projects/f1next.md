@@ -1,7 +1,7 @@
 ---
 title: "F1 Next"
 slug: "f1next"
-weight: 41
+weight: 30
 tech: [Typescript, Vue, Nuxt, Netlify]
 link: https://f1next.netlify.app/
 screenshots: [./src/assets/images/project-f1next.png]
