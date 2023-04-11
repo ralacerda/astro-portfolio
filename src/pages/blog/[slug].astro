@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection(
+    "articles",
+    ({ data }) => data.isDraft != true
+  );
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout pageName="">
+  <article>
+    <h1>{entry.data.title}</h1>
+    <Content />
+  </article>
+</Layout>
+
+<style lang="scss">
+  h1 {
+    margin-bottom: var(--space-m);
+    font-size: var(--step-3);
+  }
+
+  article {
+    @include card;
+  }
+</style>
