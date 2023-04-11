@@ -1,12 +1,10 @@
 ---
-import { getCollection } from "astro:content";
+import { getBlogPosts } from "@/composables/getBlogPosts";
+
 import Layout from "@/layouts/Layout.astro";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection(
-    "articles",
-    ({ data }) => data.isDraft != true
-  );
+  const blogEntries = await getBlogPosts();
   return blogEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
