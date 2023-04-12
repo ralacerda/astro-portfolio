@@ -27,7 +27,7 @@ function getLargestNumber(numbersArray) {
   return numbersArray.sort().slice(-1)[0];
 }
 
-console.log(getLargestNumber(numbers)); // 9
+getLargestNumber(numbers); // 9
 ```
 
 Alguma coisa deu errado. O resultado esperado era `57`, mas a função retornou `9`. Estamos usando o método certo? Pode ser um bug no Javascript? Será que erramos com o `slice(-1)[0]`?
@@ -35,7 +35,7 @@ Alguma coisa deu errado. O resultado esperado era `57`, mas a função retornou 
 Vamos usar somente o `sort()` no array para entender melhor o que está acontecendo:
 
 ```javascript
-console.log(numbers.sort()); // [ 13, 30, 4, 4, 41, 43, 5, 57, 9 ]
+numbers.sort(); // [ 13, 30, 4, 4, 41, 43, 5, 57, 9 ]
 ```
 
 O array está ordenado como se os valores fossem strings, e como para o Javascript o string `"9"` é maior que o string `"57"`, a função retorna `9`. Pode parecer estranho, mas é o comportamento esperado do método `sort()`. De acordo com o [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort):
@@ -49,7 +49,7 @@ Como estamos tentando ordenar números de forma crescente, podemos usar a subtra
 [^4]: Por exemplo, dado os valores `a = 4, b = 9`, temos que `a - b = -5`, e portanto `a` deve vir antes do `b`. No caso de `a = 30, b = 5`, `a - b = 25`, e portanto `b` deve vir antes do `a`.
 
 ```javascript
-console.log(numbers.sort((a, b) => a - b)); // [ 4, 4, 5, 9, 13, 30, 41, 43, 57 ]
+numbers.sort((a, b) => a - b); // [ 4, 4, 5, 9, 13, 30, 41, 43, 57 ]
 ```
 
 Agora que temos o comportamento esperado, podemos refazer a nossa função:
@@ -59,7 +59,7 @@ function getLargestNumber(numbersArray) {
   return numbersArray.sort((a, b) => a - b).slice(-1)[0];
 }
 
-console.log(getLargestNumber(numbers)); // 57
+getLargestNumber(numbers); // 57
 ```
 
 Agora a função funciona como esperado. Entretanto, existe um comportamento importante do `sort()` que não podemos esquecer: ele modifica o array original.
@@ -67,8 +67,8 @@ Agora a função funciona como esperado. Entretanto, existe um comportamento imp
 Note que o fato de `numbers` ser uma `const` não impede que os valores dentro do array sejam modificados ou reordenados.
 
 ```javascript
-console.log(numbers.sort((a, b) => a - b)); // [ 4, 4, 5, 9, 13, 30, 41, 43, 57 ]
-console.log(numbers); // [ 4, 4, 5, 9, 13, 30, 41, 43, 57 ]
+numbers.sort((a, b) => a - b); // [ 4, 4, 5, 9, 13, 30, 41, 43, 57 ]
+numbers; // [ 4, 4, 5, 9, 13, 30, 41, 43, 57 ]
 ```
 
 Modificar o array dessa forma pode trazer problemas e bugs inesperados. É importante evitar esse tipo de "efeito colateral" no nosso código.
@@ -82,8 +82,8 @@ function getLargestNumber(numbersArray) {
   return [...numbersArray].sort((a, b) => a - b).slice(-1)[0];
 }
 
-console.log(getLargestNumber(numbers)); // 57
-console.log(numbers); // [4, 5, 4, 9, 13, 41, 43, 57, 30]
+getLargestNumber(numbers); // 57
+numbers; // [4, 5, 4, 9, 13, 41, 43, 57, 30]
 ```
 
 Se você não gosta de utilizar `slice(-1)[0]`, você pode utilizar `at(-1)` ou aproveitar que estamos trabalhando com uma cópia do array original e utilizar `pop()`. Dessa forma, nossa função final seria:
@@ -115,13 +115,13 @@ function getLargestNumber(numbersArray) {
   return largestNumber;
 }
 
-console.log(getLargestNumber(numbers)); // 57
+getLargestNumber(numbers); // 57
 ```
 
 Para o array que estamos usando de exemplo, a função funciona. Mas o que acontece quando um array possui somente valores negativos?
 
 ```javascript
-console.log(getLargestNumber([-10, -1, -30, -45])); // 0
+getLargestNumber([-10, -1, -30, -45]); // 0
 ```
 
 Como iniciamos a variável com o valor de 0 e nenhum elemento dentro do array é maior que zero, a função retorna 0 de forma equivocada.
@@ -133,13 +133,13 @@ Não definir um valor inicial para `largestNumber` não funciona, pois a compara
 ```javascript
 let largestNumber;
 
-console.log(2 > largestNumber); // false
-console.log(-2 > largestNumber); // false
+2 > largestNumber; // false
+-2 > largestNumber; // false
 
 largestNumber = null;
 
-console.log(2 > largestNumber); // true
-console.log(-2 > largestNumber); // false
+2 > largestNumber; // true
+-2 > largestNumber; // false
 ```
 
 A solução então é usar o primeiro elemento do Array como valor inicial de `largestNumber` e começar o nosso loop do index 1.
@@ -155,10 +155,10 @@ function getLargestNumber(numbersArray) {
   return largestNumber;
 }
 
-console.log(getLargestNumber(numbers)); // 57
+getLargestNumber(numbers); // 57
 
 const negativeNumbers = [-4, -5, -4, -9, -1, -3];
-console.log(getLargestNumber(negativeNumbers)); // -1
+getLargestNumber(negativeNumbers); // -1
 ```
 
 A função agora funciona corretamente para os dois tipos de array, mas eu particularmente prefiro utilizar `for...of` para loops. Esse formato ajuda a evitar erros e deixa o código mais limpo e fácil de entender:
@@ -188,10 +188,10 @@ function getLargestNumber(numbersArray) {
   });
 }
 
-console.log(getLargestNumber(numbers)); // 57
+getLargestNumber(numbers); // 57
 
 const negativeNumbers = [-4, -5, -4, -9, -1, -3];
-console.log(getLargestNumber(negativeNumbers)); // -1
+getLargestNumber(negativeNumbers); // -1
 ```
 
 O primeiro elemento do array vira o acumulador (`accumulator`) e é comparado com o próximo elemento (`number`). Se o elemento é maior que acumulador, retornamos o elemento, se não, retornamos o acumulador. O valor retornado vira o novo acumulador que será comparado com o próximo elemento, e assim por diante.
@@ -220,7 +220,7 @@ function getLargestNumber(numbersArray) {
   return Math.max.apply(null, numbersArray);
 }
 
-console.log(getLargestNumber(numbers)); // 57
+getLargestNumber(numbers); // 57
 ```
 
 Mas aqui também podemos usar a sintaxe de "espalhamento" (spread).
@@ -230,7 +230,7 @@ function getLargestNumber(numbersArray) {
   return Math.max(...numbersArray);
 }
 
-console.log(getLargestNumber(numbers)); // 57
+getLargestNumber(numbers); // 57
 ```
 
 ## Conclusão
@@ -268,15 +268,15 @@ Qual é a forma mais correta? Eu acredito que, antes de considerar a performance
 Lógico que essas funções também não são perfeitas e cada uma lida de uma forma diferente com casos extremos. O contexto que vai determinar quais mudanças na função são necessárias para melhor lidar com esses casos.
 
 ```javascript
-console.log(getLargestNumberBySort([])); // undefined
-console.log(getLargestNumberByFor([])); //  undefined
-console.log(getLargestNumberByReduce([])); // ERRO: Reduce of empty array with no initial value
-console.log(getLargestNumberByMax([])); // -Infinity
+getLargestNumberBySort([]); // undefined
+getLargestNumberByFor([]); //  undefined
+getLargestNumberByReduce([]); // ERRO: Reduce of empty array with no initial value
+getLargestNumberByMax([]); // -Infinity
 
-console.log(getLargestNumberBySort(["string", 4, 6])); // 6
-console.log(getLargestNumberByFor(["string", 4, 6])); // string
-console.log(getLargestNumberByReduce(["string", 4, 6])); // string
-console.log(getLargestNumberByMax(["string", 4, 6])); // NaN
+getLargestNumberBySort(["string", 4, 6]); // 6
+getLargestNumberByFor(["string", 4, 6]); // string
+getLargestNumberByReduce(["string", 4, 6]); // string
+getLargestNumberByMax(["string", 4, 6]); // NaN
 ```
 
 Mesmo que você já saiba como resolver um problema, eu ainda acho que vale a pena explorar outras soluções quando você está estudando uma linguagem. Além de ajudar a revisar alguns conceitos fundamentais, você consegue praticar o uso de certas funções, e essas diferentes abordagens podem te ajudar com ideias em outros cenários e situações.
