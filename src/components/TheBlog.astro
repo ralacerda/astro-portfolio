@@ -1,0 +1,21 @@
+---
+import { getBlogPosts } from "@/composables/getBlogPosts";
+
+const blogEntries = await getBlogPosts();
+---
+
+<div class="blog">
+  {
+    blogEntries.map((item) => (
+      <li>
+        <a href={`/blog/${item.slug}`}>{item.data.title}</a>
+      </li>
+    ))
+  }
+</div>
+
+<style lang="scss">
+  .blog {
+    @include card;
+  }
+</style>
