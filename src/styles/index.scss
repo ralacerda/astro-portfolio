@@ -14,7 +14,8 @@ main > * {
   margin-top: var(--space-xl-2xl);
 }
 
-p {
+p,
+li {
   max-width: 80ch;
 }
 
@@ -30,11 +31,4 @@ a {
     color: var(--fg);
     text-decoration-color: var(--danger);
   }
-}
-
-.astro-code {
-  padding: 1rem;
-  max-width: 80ch;
-  border-radius: 0.5rem;
-  margin-block: 1rem;
 }
