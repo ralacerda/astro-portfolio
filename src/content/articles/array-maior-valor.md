@@ -73,7 +73,7 @@ console.log(numbers); // [ 4, 4, 5, 9, 13, 30, 41, 43, 57 ]
 
 Modificar o array dessa forma pode trazer problemas e bugs inesperados. É importante evitar esse tipo de "efeito colateral" no nosso código.
 
-Uma solução é utilizar o método `sort()` em uma cópia do array original[^2]. A forma mais simples de fazer isso é utilizando a [sintaxe de "espalhamento" (spread)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+Uma solução é utilizar o método `sort()` em uma cópia do array original[^2]. A forma mais simples de fazer isso é utilizando a [sintaxe de "espalhamento" (spread)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Spread_syntax).
 
 [^2]: Já existe uma proposta aceita para um método chamado `toSorted()` que retorna uma cópia do array ordenada. Até o momento, entretanto, somente o Chrome possui o método implementado.
 
@@ -279,4 +279,4 @@ console.log(getLargestNumberByReduce(["string", 4, 6])); // string
 console.log(getLargestNumberByMax(["string", 4, 6])); // NaN
 ```
 
-Mesmo que você já saiba como resolver um problema, eu ainda acho que vale a pena explorar outras soluções quando você está estudando uma linguagem. Além de ajudar a revisar alguns conceitos fundamentais, você consegue praticar o uso de certas funções, e essas diferentes abordagens podem ter ajudar com ideias em outros cenários e situações.
+Mesmo que você já saiba como resolver um problema, eu ainda acho que vale a pena explorar outras soluções quando você está estudando uma linguagem. Além de ajudar a revisar alguns conceitos fundamentais, você consegue praticar o uso de certas funções, e essas diferentes abordagens podem te ajudar com ideias em outros cenários e situações.
