@@ -27,5 +27,9 @@ export default defineConfig({
     shikiConfig: {
       theme: "one-dark-pro",
     },
+    remarkRehype: {
+      footnoteLabel: "Notas",
+      footnoteBackLabel: "Voltar para o texto",
+    },
   },
 });
