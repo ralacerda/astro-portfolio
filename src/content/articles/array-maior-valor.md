@@ -5,7 +5,7 @@ publishDate: 2023-04-12
 
 Procurando por exercícios para praticar Javascript, encontrei a seguinte questão: "Escreva uma função que recebe um array e retorna o maior valor entre os elementos.". É uma tarefa simples, mas ela pode envolver diferentes aspectos do Javascript. Neste artigo, vou apresentar algumas soluções diferentes que eu encontrei para o problema, utilizando três abordagens distintas.
 
-Como exemplo, vamos utilizar o seguinte array:
+Como exemplo, vamos utilizar o array abaixo. O objetivo é que a função retorne `57`, o maior valor entre os elementos.
 
 ```javascript
 const numbers = [4, 5, 4, 9, 13, 41, 43, 57, 30];
@@ -30,7 +30,7 @@ function getLargestNumber(numbersArray) {
 console.log(getLargestNumber(numbers)); // 9
 ```
 
-Alguma coisa deu errado. O resultado esperado era 57, mas a função retornou 9. Estamos usando o método certo? Pode ser um bug no Javascript? Será que erramos com o `slice(-1)[0]`?
+Alguma coisa deu errado. O resultado esperado era `57`, mas a função retornou `9`. Estamos usando o método certo? Pode ser um bug no Javascript? Será que erramos com o `slice(-1)[0]`?
 
 Vamos usar somente o `sort()` no array para entender melhor o que está acontecendo:
 
@@ -38,7 +38,7 @@ Vamos usar somente o `sort()` no array para entender melhor o que está acontece
 console.log(numbers.sort()); // [ 13, 30, 4, 4, 41, 43, 5, 57, 9 ]
 ```
 
-O array está ordenado como se os valores fossem strings. Para o Javascript, o string `"9"` vem depois do string `"57"`. Pode parecer estranho, mas é o comportamento esperado do método `sort()`. De acordo com o [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort):
+O array está ordenado como se os valores fossem strings, e como para o Javascript o string `"9"` é maior que o string `"57"`, a função retorna `9`. Pode parecer estranho, mas é o comportamento esperado do método `sort()`. De acordo com o [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort):
 
 > The default sort order is ascending, built upon converting the elements into strings, then comparing their sequences of UTF-16 code units values.
 
@@ -73,9 +73,9 @@ console.log(numbers); // [ 4, 4, 5, 9, 13, 30, 41, 43, 57 ]
 
 Modificar o array dessa forma pode trazer problemas e bugs inesperados. É importante evitar esse tipo de "efeito colateral" no nosso código.
 
-Uma solução é utilizar o método `sort()` em uma cópia do array original[^2]. A forma mais simples de fazer isso é utilizando o ["espalhamento" (spread)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+Uma solução é utilizar o método `sort()` em uma cópia do array original[^2]. A forma mais simples de fazer isso é utilizando a [sintaxe de "espalhamento" (spread)](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
-[^2]: Já existe uma proposta aceita para um método chamado `toSorted()` que ordena e retorna uma cópia do array. Até o momento, entretanto, somente o Chrome possui o método implementado.
+[^2]: Já existe uma proposta aceita para um método chamado `toSorted()` que retorna uma cópia do array ordenada. Até o momento, entretanto, somente o Chrome possui o método implementado.
 
 ```javascript
 function getLargestNumber(numbersArray) {
@@ -98,7 +98,7 @@ function getLargestNumber(numbersArray) {
 
 Outra possível solução do problema seguiria os seguintes passos:
 
-1. Crie uma variável para guardar o maior valor
+1. Crie uma variável para guardar o maior valor encontrado
 2. Para cada elemento do array, se ele for maior que o valor atual da variável, mude o valor da variável para ser o valor do elemento.
 3. Retorne a variável
 
@@ -131,11 +131,15 @@ Não definir um valor inicial para `largestNumber` não funciona, pois a compara
 [^3]: Para entender melhor o comportamento do `null` quando comparado com um número, dê uma lida nesse artigo: [Javascript : The Curious Case of Null >= 0](https://blog.campvanilla.com/javascript-the-curious-case-of-null-0-7b131644e274)
 
 ```javascript
-console.log(2 > undefined); // false
-console.log(-2 > undefined); // false
+let largestNumber;
 
-console.log(2 > null); // true
-console.log(-2 > null); // false
+console.log(2 > largestNumber); // false
+console.log(-2 > largestNumber); // false
+
+largestNumber = null;
+
+console.log(2 > largestNumber); // true
+console.log(-2 > largestNumber); // false
 ```
 
 A solução então é usar o primeiro elemento do Array como valor inicial de `largestNumber` e começar o nosso loop do index 1.
@@ -157,7 +161,7 @@ const negativeNumbers = [-4, -5, -4, -9, -1, -3];
 console.log(getLargestNumber(negativeNumbers)); // -1
 ```
 
-A função funciona, mas eu particularmente prefiro utilizar `for...of` para loops. Esse formato evita erros e deixa o código mais limpo e fácil de entender:
+A função agora funciona corretamente para os dois tipos de array, mas eu particularmente prefiro utilizar `for...of` para loops. Esse formato ajuda a evitar erros e deixa o código mais limpo e fácil de entender:
 
 ```javascript
 function getLargestNumber(numbersArray) {
@@ -205,11 +209,11 @@ function getLargestNumber(numbersArray) {
 ## Utilizando Math.max()
 
 Na minha opinião, a forma mais fácil e rápida de resolver o problema.
-O objeto global `Math` possui um método `max()` que retorna o maior valor dentre os argumentos passados.
+O objeto global `Math` possui o método `max()` que retorna o maior valor entre os argumentos passados.
 
-O método `apply()`[^5] executa uma função passando um array como os argumentos. Podemos escrever a função da seguinte forma:
+Para passar um array como uma lista de argumentos usamos o método `apply()`[^5]. Podemos escrever a função da seguinte forma:
 
-[^5]: Como funções do Javascript [também são objetos](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Function), elas podem ter métodos.
+[^5]: Funções do Javascript [também são objetos](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Function) e possuem métodos.
 
 ```javascript
 function getLargestNumber(numbersArray) {
@@ -219,7 +223,7 @@ function getLargestNumber(numbersArray) {
 console.log(getLargestNumber(numbers)); // 57
 ```
 
-Mas também podemos usar novamente a sintaxe de "espelhamento" (spread).
+Mas aqui também podemos usar a sintaxe de "espalhamento" (spread).
 
 ```javascript
 function getLargestNumber(numbersArray) {
@@ -259,9 +263,9 @@ function getLargestNumberByMax(numbersArray) {
 }
 ```
 
-Qual é a forma mais correta? Eu acredito que, antes de considerar a performance, o uso de memória ou a quantidade de código, a legibilidade deve ser levada em conta. Para mim, a versão que utiliza `Math.max()` é a mais simples e rápida de entender.
+Qual é a forma mais correta? Eu acredito que, antes de considerar a performance, o uso de memória ou linhas de código, a legibilidade deve ser levada em conta. Para mim, a versão que utiliza `Math.max()` é a mais simples e rápida de entender.
 
-Lógico que essas funções também não são perfeitas, e cada uma lida de uma forma diferente com casos extremos:
+Lógico que essas funções também não são perfeitas e cada uma lida de uma forma diferente com casos extremos. O contexto que vai determinar quais mudanças na função são necessárias para melhor lidar com esses casos.
 
 ```javascript
 console.log(getLargestNumberBySort([])); // undefined
@@ -275,8 +279,4 @@ console.log(getLargestNumberByReduce(["string", 4, 6])); // string
 console.log(getLargestNumberByMax(["string", 4, 6])); // NaN
 ```
 
-Há valor em aprender outras formas de resolver o mesmo problema
-
-- Importante para revisar alguns coisas fundamentais
-- Importante para praticar o uso de alguns métodos
-- Cada abordagem pode ser aplicada em um cenário diferente
+Mesmo que você já saiba como resolver um problema, eu ainda acho que vale a pena explorar outras soluções quando você está estudando uma linguagem. Além de ajudar a revisar alguns conceitos fundamentais, você consegue praticar o uso de certas funções, e essas diferentes abordagens podem ter ajudar com ideias em outros cenários e situações.
