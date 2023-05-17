@@ -1,0 +1,138 @@
+---
+const pullrequests = await Astro.glob("../assets/pullrequests/*.png");
+
+const pullrequestsInfo = [
+  {
+    alt: "Pull request contributing to lichs",
+    url: "https://github.com/Cqsi/lichs/pull/4",
+  },
+  {
+    alt: "Pull request contributing to Astro",
+    url: "https://github.com/withastro/docs/pull/1693",
+  },
+  {
+    alt: "Pull request contributing to Astro",
+    url: "https://github.com/withastro/docs/pull/1727",
+  },
+  {
+    alt: "Pull request contributing to Astro",
+    url: "https://github.com/withastro/docs/pull/1951",
+  },
+  {
+    alt: "Pull request contributing to Astro",
+    url: "https://github.com/withastro/astro/pull/5894",
+  },
+  {
+    alt: "Pull request contributing to nitro",
+    url: "https://github.com/unjs/nitro/pull/903",
+  },
+  {
+    alt: "Pull request contributing to DiceBear",
+    url: "https://github.com/dicebear/dicebear/pull/315",
+  },
+];
+
+console.log(pullrequests[0]);
+---
+
+<div class="opensource">
+  <div class="opensource__card">
+    <h2>Open Source</h2>
+    <div class="card__text">
+      <p>
+        Sou entusiasta da cultura de Open Source e acredito no poder da
+        colaboração e compartilhamento de conhecimento. Ao longo dos anos, tive
+        a oportunidade de contribuir para diversos projetos de código aberto,
+        tanto em termos de desenvolvimento de código quanto de documentação.
+      </p>
+      <p>
+        Um dos projetos em que tive a oportunidade de contribuir ativamente foi
+        o Astro. Contribui em multiplas ocasiões para melhorar e traduzir a
+        documentação desse projeto. Colaborar com a equipe do Astro foi uma
+        experiência gratificante, e essa contribuição me permitiu aprender não
+        apenas sobre o projeto em si, mas também sobre boas práticas de
+        documentação e comunicação eficaz em projetos de código aberto.
+      </p><p>
+        Além disso, tenho meus próprios projetos hospedados no GitHub sob a
+        licença MIT, o que significa que estou aberto a contribuições externas e
+        encorajo a comunidade a fazer forks e aprender com meus repositórios.
+      </p>
+    </div>
+  </div>
+
+  <div class="opensource__gallery">
+    {
+      pullrequests.map((print, index) => (
+        <div class="gallery__image">
+          <a href={pullrequestsInfo[index].url} target="_blank">
+            <img src={print.default.src} alt={pullrequestsInfo[index].alt} />
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style lang="scss">
+  h2 {
+    font-size: var(--step-3);
+  }
+
+  .opensource__card {
+    flex-grow: 1;
+    max-width: 60ch;
+  }
+
+  .card__text {
+    margin-top: var(--space-m);
+  }
+  .opensource__gallery:hover .gallery__image:not(:hover) {
+    filter: saturate(0.1);
+  }
+
+  .opensource__gallery {
+    --overlap: var(--space-xl);
+  }
+
+  .opensource__gallery .gallery__image {
+    display: block;
+    flex-grow: 0;
+    isolation: isolate;
+    transition: 200ms;
+    border: 1px solid #00000060;
+    position: relative;
+  }
+
+  .opensource__gallery .gallery__image a::after {
+    content: "";
+    background: linear-gradient(to top, #00000040 10%, transparent);
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    z-index: 5;
+  }
+
+  .opensource__gallery .gallery__image + .gallery__image {
+    margin-top: calc(var(--overlap) * -1);
+  }
+
+  .opensource__gallery .gallery__image:hover:not(:last-child) {
+    transform: translateY(calc(var(--overlap) * -1 * 0.6));
+  }
+
+  @media (max-width: 660px) {
+    .opensource__gallery {
+      --overlap: 0;
+    }
+  }
+
+  .opensource {
+    @include card;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr));
+    justify-items: start;
+    gap: var(--space-xl);
+  }
+</style>
