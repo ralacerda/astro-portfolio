@@ -4,4 +4,4 @@ Anos depois, mesmo não trabalhando na área de tecnologia, meu conhecimento ant
 
 Durante a pandemia, tive a oportunidade de colaborar com a divulgação de um evento acadêmico, criando seu site. Embora tivesse enfrentado desafios iniciais, dediquei-me a aprender e consegui concluir o projeto, reacendendo minha paixão pela programação, especialmente pelo desenvolvimento web.
 
-Desde então, tenho me esforçado para aprimorar meus conhecimentos na área e me preparar para uma mudança de carreira. Atualmente, participo do Programa de Desenvolvimento do Grupo Boticário (Trilha FullStack) e busco oportunidades para começar minha carreira como desenvolvedor front-end.
+Desde então, tenho me esforçado para aprimorar meus conhecimentos na área e me preparar para uma mudança de carreira. Atualmente, participo do Programa de Desenvolvimento do Grupo Boticário (Trilha FullStack) e busco oportunidades para começar minha carreira como desenvolvedor.
