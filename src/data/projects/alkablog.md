@@ -5,7 +5,7 @@ weight: 24
 tech: [Typescript, Vue, Nuxt, SASS, Netlify]
 link: https://alka-blog.netlify.app/
 screenshots: [./src/assets/images/project-alkablog.png]
-repoLink: https://github.com/ralacerda/alka-blog
+repoLink: https://github.com/ralacerda/alkablog
 ---
 
 O AlkaBlog tem como objetivo demonstrar como consumir informações de um **REST API** para criação de um blog. Usando **Nuxt**, **Vue** e **Typescript**, o projeto inclue uma tela inicial com diferentes posts e comentários, além de um Painel de Administrador.
