@@ -65,7 +65,11 @@ console.log(pullrequests[0]);
       pullrequests.map((print, index) => (
         <div class="gallery__image">
           <a href={pullrequestsInfo[index].url} target="_blank">
-            <img src={print.default.src} alt={pullrequestsInfo[index].alt} />
+            <img
+              src={print.default.src}
+              alt={pullrequestsInfo[index].alt}
+              loading="lazy"
+            />
           </a>
         </div>
       ))
