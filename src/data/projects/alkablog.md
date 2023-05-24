@@ -3,7 +3,7 @@ title: "AlkaBlog"
 slug: "alkablog"
 weight: 24
 tech: [Typescript, Vue, Nuxt, SASS, Netlify]
-link: https://alka-blog.netlify.app/
+link: https://alkablog.netlify.app/
 screenshots: [./src/assets/images/project-alkablog.png]
 repoLink: https://github.com/ralacerda/alkablog
 ---
