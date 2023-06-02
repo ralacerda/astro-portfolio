@@ -12,6 +12,6 @@ Este projeto é um aplicativo web para exibir o horário dos eventos de Formula 
 
 É possível acessar os horários de todos as corridas do ano, incluindo uma contagem regressiva para cada, além do horário de início ajustado ao fuso horário do usuário. O design é original e se adapta a diferentes formatos de tela.
 
-O projeto utiliza da framework **Nuxt**, que permite o uso de **VueJS** e **Typescript**. Com essa framework, foi possível utilizar uma estratégia de _Server Side Rendering_, que em conjunto com uma _Serverless Function_, consegue realizar um cache da REST API consumida para gerar a página. Isso permite que o site seja leve e rápido de carregar.
+Um dos desafios do projeto foi escrever código que depende de tempo e fuso horário. Por isso, escolhi utilizar **Vitest** para testes unitário, o que me ajudou a determinar se aplicativo funcionava sem precisar esperar um fim de semana de corrida.
 
-O site está hospedado na **Netlify**, que além de fornecer mecanismos de **CI/CD**, também hospeada e executa a _Serverless Function_ necessária para o fucionamento do site.
+O projeto utiliza da framework **Nuxt**, que permite o uso de **VueJS** e **Typescript**. Com essa framework, foi possível utilizar uma estratégia de _Server Side Rendering_, que em conjunto com uma _Serverless Function_, consegue realizar um cache da REST API consumida para gerar a página. Isso permite que o site seja leve e rápido de carregar.

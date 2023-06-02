@@ -41,4 +41,5 @@ const TechNames = [
   "React",
   "Next",
   "Contentful",
+  "Vitest"
 ] as const;
