@@ -14,7 +14,7 @@ const links = new Map([
 <nav class="navbar">
   <div class="navbar__container">
     <header class="navbar__title">
-      <div><a href="/">Renato Lacerda</a></div>
+      <div><a href="#">Renato Lacerda</a></div>
       <button
         class="navbar__button"
         aria-label="Toggle navigation menu"
@@ -40,6 +40,13 @@ const links = new Map([
 
 <style lang="scss">
   .navbar {
+    @include shadow;
+    position: sticky;
+    z-index: 999;
+    top: 0;
+    background-color: var(--bg);
+    border-bottom: 1px solid #00000010;
+    transition: 300ms;
     overflow: hidden;
 
     & a {

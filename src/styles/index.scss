@@ -12,6 +12,7 @@ body {
 main > * {
   @include centered-content;
   margin-top: var(--space-xl-2xl);
+  scroll-margin-top: 4rem;
 }
 
 p,

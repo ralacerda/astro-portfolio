@@ -1,0 +1,22 @@
+<button class="scroll-button"> /\</button>
+
+<style lang="scss">
+  .scroll-button {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 1000;
+    cursor: pointer;
+    color: var(--fg);
+    background: var(--danger);
+    border: 0;
+    display: block;
+    padding: 1rem;
+    border-radius: 100%;
+    transition: 150ms;
+    height: 3rem;
+    width: 3rem;
+    margin-top: 0;
+    @include shadow;
+  }
+</style>
