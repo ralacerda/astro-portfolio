@@ -26,22 +26,17 @@
 }
 
 @mixin shadow {
-  box-shadow: 8px 2.9px 5.3px rgba(0, 0, 0, 0.016),
-    26.8px 9.8px 17.9px rgba(0, 0, 0, 0.024),
-    120px 44px 80px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 @mixin strong-shadow {
-  box-shadow: 4.5px 1.7px 3.6px rgba(0, 0, 0, 0.017),
-    12.5px 4.8px 10px rgba(0, 0, 0, 0.025),
-    30.1px 11.5px 24.1px rgba(0, 0, 0, 0.033),
-    100px 38px 80px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 @mixin card {
   z-index: 10;
   background-color: var(--bg-secondary);
-  @include strong-shadow;
+  @include shadow;
   border-radius: 0.5rem;
   padding: var(--space-m) var(--space-l-xl);
 }
