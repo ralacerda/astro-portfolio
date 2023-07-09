@@ -40,14 +40,30 @@ const links = new Map([
   </div>
 </nav>
 
+<script>
+  const navbar = document.querySelector(".navbar") as HTMLElement;
+
+  function handleScroll() {
+    const scrollPosition = window.scrollY;
+    if (scrollPosition > 0) {
+      requestAnimationFrame(() => {
+        navbar.classList.add("sticky");
+      });
+    } else if (scrollPosition <= 0) {
+      requestAnimationFrame(() => {
+        navbar.classList.remove("sticky");
+      });
+    }
+  }
+
+  window.addEventListener("scroll", handleScroll);
+</script>
+
 <style lang="scss">
   .navbar {
-    @include shadow;
     position: sticky;
     z-index: 999;
     top: 0;
-    background-color: var(--bg);
-    border-bottom: 1px solid #00000010;
     transition: 300ms;
     overflow: hidden;
 
@@ -57,8 +73,15 @@ const links = new Map([
     }
   }
 
+  .navbar.sticky {
+    @include shadow;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background-color: #222831ee;
+  }
+
   .navbar__container {
-    padding: 0.6rem;
+    padding: 1.2rem 0.6rem;
     display: flex;
     justify-content: space-between;
     @include centered-content;
