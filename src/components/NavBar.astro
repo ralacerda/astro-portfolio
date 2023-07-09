@@ -23,18 +23,20 @@ const links = new Map([
         <OpenNav />
       </button>
     </header>
-    <ul role="list" class="navbar__navigation">
-      {
-        Array.from(links, ([key, value]) => (
-          <li>
-            <a href={value} class="navbar__link">
-              {key}
-            </a>
-          </li>
-        ))
-      }
+    <div class="navbar__right">
+      <ul role="list" class="navbar__navigation">
+        {
+          Array.from(links, ([key, value]) => (
+            <li>
+              <a href={value} class="navbar__link">
+                {key}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
       <ThemeIcon />
-    </ul>
+    </div>
   </div>
 </nav>
 
@@ -71,9 +73,15 @@ const links = new Map([
     justify-content: space-between;
   }
 
+  .navbar__right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
   .navbar__navigation {
     display: flex;
-    gap: 2rem;
+    gap: 0rem 2rem;
     align-items: center;
   }
 
@@ -101,7 +109,7 @@ const links = new Map([
       display: unset;
     }
 
-    .navbar__navigation {
+    .navbar__right {
       display: none;
     }
 
@@ -109,11 +117,18 @@ const links = new Map([
       flex-direction: column;
     }
 
-    .navbar__navigation[data-active] {
-      display: block;
+    .navbar__right[data-active] {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
 
+    .navbar__navigation {
+      flex-direction: column;
+      align-items: flex-start;
       li {
-        margin-block: 2rem;
+        padding-top: 1rem;
       }
     }
   }
@@ -121,7 +136,7 @@ const links = new Map([
 
 <script>
   const toggleButton = document.getElementById("navbar-button");
-  const navigationLinks = document.querySelector(".navbar__navigation");
+  const navigationLinks = document.querySelector(".navbar__right");
 
   toggleButton?.addEventListener("click", () => {
     navigationLinks?.toggleAttribute("data-active");
