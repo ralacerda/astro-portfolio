@@ -22,6 +22,7 @@ body {
   --form-fg: var(--fg);
   --form-hl: var(--neutral-500);
   --form-hl-shadows: var(--neutral-400);
+  --bg-transparent: #f5f5f5ee;
 }
 
 .dark body {
@@ -36,6 +37,7 @@ body {
   --form-fg: var(--neutral-100);
   --form-hl: var(--neutral-300);
   --form-hl-shadows: var(--neutral-600);
+  --bg-transparent: #222831ee;
 }
 
 /* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1440,16,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
