@@ -39,21 +39,6 @@ const icons: Tech[] = [
   }
 
   li {
-    --duration: 350ms;
-    --delay: 100ms;
-
-    position: relative;
-    opacity: 0;
-    transition: opacity var(--duration) linear calc(var(--delay) * var(--i)),
-      transform var(--duration) ease-out calc(var(--delay) * var(--i));
-    transform: translateY(12rem);
-
-    @for $i from 1 through 12 {
-      &:nth-child(#{$i}) {
-        --i: #{$i};
-      }
-    }
-
     &::after {
       content: attr(data-tooltip);
       display: block;
@@ -81,16 +66,22 @@ const icons: Tech[] = [
       }
     }
   }
-
-  .fadeIn {
-    opacity: 1;
-    transform: translateY(0);
-  }
 </style>
 
 <script>
-  addEventListener("load", () => {
-    const iconList = document.querySelectorAll(".icon-list li");
-    iconList.forEach((icon) => icon.classList.add("fadeIn"));
+  import { animate, inView, stagger, spring } from "motion";
+
+  inView(".icon-list li", () => {
+    animate(
+      ".icon-list li",
+      {
+        opacity: [0, 1],
+        y: [80, 0],
+      },
+      {
+        delay: stagger(0.05),
+        easing: spring({ stiffness: 200, damping: 30 }),
+      }
+    );
   });
 </script>

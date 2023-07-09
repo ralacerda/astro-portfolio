@@ -16,6 +16,7 @@
     "@iconify/json": "^2.2.5",
     "@octokit/core": "^4.2.0",
     "astro": "^2.0.0",
+    "motion": "^10.16.2",
     "sass": "^1.57.1",
     "sharp": "^0.31.3",
     "unplugin-icons": "^0.15.1",
