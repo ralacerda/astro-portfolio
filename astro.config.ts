@@ -13,7 +13,7 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: "@import 'src/styles/globals.scss';",
+          additionalData: "@import 'src/styles/_mixins.scss';",
         },
       },
     },
@@ -23,13 +23,4 @@ export default defineConfig({
       serviceEntryPoint: "@astrojs/image/sharp",
     }),
   ],
-  markdown: {
-    shikiConfig: {
-      theme: "one-dark-pro",
-    },
-    remarkRehype: {
-      footnoteLabel: "Notas",
-      footnoteBackLabel: "Voltar para o texto",
-    },
-  },
 });

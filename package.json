@@ -12,15 +12,12 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.13.0",
-    "@fontsource/nunito-sans": "^4.5.10",
     "@iconify/json": "^2.2.5",
-    "@octokit/core": "^4.2.0",
     "astro": "^2.0.0",
     "motion": "^10.16.2",
     "sass": "^1.57.1",
     "sharp": "^0.31.3",
-    "unplugin-icons": "^0.15.1",
-    "vue": "^3.2.30"
+    "unplugin-icons": "^0.15.1"
   },
   "devDependencies": {
     "prettier": "^2.8.2",
